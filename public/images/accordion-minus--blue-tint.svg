@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <path id="circle---minus-a" d="M16,0 C7.163,0 0,7.16 0,16 C0,24.84 7.163,32 16,32 C24.837,32 32,24.84 32,16 C32,7.16 24.837,0 16,0 L16,0 Z M22.8571429,15 L9.14285714,15 C8.51085714,15 8,15.495 8,16.1 C8,16.705 8.51085714,17.2 9.14285714,17.2 L22.8571429,17.2 C23.4891429,17.2 24,16.705 24,16.1 C24,15.495 23.4891429,15 22.8571429,15 L22.8571429,15 Z"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <mask id="circle---minus-b" fill="#fff">
+      <use xlink:href="#circle---minus-a"/>
+    </mask>
+    <use fill="#7CD2FF" xlink:href="#circle---minus-a"/>
+    <g mask="url(#circle---minus-b)">
+      <rect width="32" height="32" fill="#7CD2FF"/>
+    </g>
+  </g>
+</svg>

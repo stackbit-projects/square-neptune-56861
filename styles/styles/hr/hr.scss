@@ -1,0 +1,11 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+hr {
+    &.dashed {
+        border-bottom: rem-calc(2) solid $border-light-gray;
+        border-style: dashed;
+        margin-top: rem-calc(35);
+        margin-bottom: rem-calc(35);
+
+    }
+}

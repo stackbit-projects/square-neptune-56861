@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>Play Icon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Main-Site---Main-Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Main---Component-Library-1" transform="translate(-1224.000000, -12109.000000)">
+            <g id="Media-&amp;-UGC" transform="translate(0.000000, 10130.000000)">
+                <g id="Youtube-Video-Spotlight" transform="translate(0.000000, 1700.000000)">
+                    <g id="By-My-Side-Promo-Panel">
+                        <g transform="translate(0.000000, 64.000000)">
+                            <g transform="translate(360.000000, 64.000000)">
+                                <g id="Play-Icon" transform="translate(864.000000, 151.000000)">
+                                    <circle id="Oval" fill="#7CD2FF" fill-rule="nonzero" cx="40" cy="40" r="40"></circle>
+                                    <path d="M54.789839,37.3875873 C55.4820938,37.7712648 55.9472015,38.3041499 56.1851643,38.9862435 C56.4231271,39.6683372 56.4231271,40.3504298 56.1851643,41.0325234 C55.9472015,41.7146171 55.4820938,42.2475022 54.789839,42.6311796 L31.9454444,55.9319992 C31.2964559,56.3156767 30.6042012,56.4435692 29.8686812,56.3156767 C29.1331613,56.1877842 28.5166222,55.8467379 28.019064,55.2925367 C27.5215059,54.7383356 27.2727273,54.077558 27.2727273,53.310203 L27.2727273,26.7085639 C27.2727273,25.8559476 27.5323227,25.163196 28.0515135,24.6303109 C28.5707042,24.0974258 29.1980601,23.7776946 29.9335801,23.6711172 C30.6691,23.5645398 31.3397221,23.7030903 31.9454444,24.0867678 L54.789839,37.3875873 Z" id="play" fill="#002C5C"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

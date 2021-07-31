@@ -1,0 +1,300 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+
+// donate an hour
+.c-donateAnHourForm {
+
+  h2 {
+    @include bp_max(800px) {
+      font-size: rem-calc(22);
+    }
+  }
+
+  h3 {
+    @include bp_max(800px) {
+      font-size: rem-calc(17);
+      line-height: 1.4em;
+    }
+  }
+
+  //@include box-shadow();
+  background: $primary;
+  padding: rem-calc(80 0);
+  position: relative;
+
+  @include bp_max(800px) {
+    padding: rem-calc(40 0);
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -20px;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid $white;
+}
+
+&:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #007dbb;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  margin-left: -webkit-calc(50% - 50vw);
+  margin-left: calc(50% - 50vw);
+  margin-right: -webkit-calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  z-index: -1;
+}
+  .white-wrapper {
+
+    @include box-shadow();
+    background: $white;
+
+    padding: rem-calc(16);
+    @include bp_min($desktop) {
+        padding: rem-calc(32 40);
+    }
+    @include bp_min($desktop-large) {
+        padding: rem-calc(48 80);
+    }
+  }
+  .form__donation {
+    display: flex;
+    margin-top: rem-calc(50);
+  }
+}
+
+.c-donateAnHourResults {
+  margin-bottom: rem-calc(40);
+
+  &__count {
+    padding-top: rem-calc(16);
+    font-weight: normal;
+    font-family: $font-bold;
+    span {
+      text-decoration: underline;
+    }
+  }
+
+  &__wrapper {
+    border-top: 2px solid $midGrey;
+    padding: rem-calc(32 0);
+
+    &:last-of-type {
+      border-bottom: 2px solid $midGrey;
+    }
+  }
+
+  &__result {
+    padding: rem-calc(8 0);
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    @include bp_max(800px) {
+      padding: 0;
+      border-left: 0;
+    }
+  }
+
+  &__title {
+    color: $primary;
+    font-size: rem-calc(24);
+    font-weight: normal;
+    font-family: $font-bold;
+    line-height: rem-calc(32);
+    margin: 0;
+    background-image: url(/images/accordion-plus--blue.svg);
+    background-repeat: no-repeat;
+    background-position: center left;
+    padding-left: rem-calc(48);
+    background-size: rem-calc(24);
+
+    @include bp_max(800px) {
+      font-size: rem-calc(17);
+      background-size: rem-calc(15);
+      padding-left: rem-calc(30);
+    }
+
+    &.active {
+      background-image: url(/images/accordion-minus--blue.svg);
+    }
+  }
+
+  &__contents {
+    padding: rem-calc(16 0 0 0);
+    @include bp_min($desktop) {
+      padding: rem-calc(24 0 0 48);
+    }
+  }
+
+  &__location,
+  &__opportunities,
+  &__distance {
+    display: inline-flex;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      position: relative;
+      top: rem-calc(4);
+      margin-right: rem-calc(16);
+      width: rem-calc(24);
+      height: rem-calc(24);
+      background-size: 20px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-image: url(/images/icon-location--blue.svg);
+      @include bp_max(800px) {
+        background-size: rem-calc(15);
+        margin-right: rem-calc(10);
+      }
+    }
+    @include bp_max(800px) {
+      font-size: rem-calc(15);
+    }
+  }
+
+  &__location {
+    margin-right: rem-calc(32);
+    @include bp_max(800px) {
+      margin-right: 0;
+      margin-bottom: rem-calc(10);
+    }
+  }
+
+  &__opportunities {
+    margin-left: rem-calc(32);
+    margin-right: rem-calc(20);
+
+    &--modified {
+      margin-left: rem-calc(10);
+      width: auto !important;
+      @include bp_max(500px) {
+        flex-direction: column;
+    }
+    }
+    &--type {
+      font-family: $font-bold;
+      margin-right: rem-calc(18);
+    }
+    &--location {
+    }
+    &:before {
+      background-image: url(/images/icon-human--blue.svg);
+      top: 0;
+    }
+  }
+
+  &__distance {
+    &:before {
+      background-image: url(/images/icon-distance--blue.svg);
+    }
+  }
+
+  &__occurence {
+    padding: rem-calc(24);
+    border: 2px solid $midGrey;
+    border-radius: rem-calc(8);
+    overflow: hidden;
+    border-bottom: 0;
+
+    &--no-padding {
+      padding: 0;
+    }
+
+    &.occurence-selected {
+      background: $lightGrey;
+    }
+
+    &:last-of-type {
+      border-bottom: 2px solid $midGrey;
+    }
+  }
+
+  &__date {
+    font-weight: normal;
+    font-family: $font-bold;
+    margin-bottom: rem-calc(12);
+  }
+
+  &__times {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none !important;
+    @include bp_max(800px) {
+      justify-content: center;
+    }
+
+    li {
+      padding: 0;
+      border: 2px solid $primary;
+      margin: rem-calc(16);
+      margin-left: 0;
+      margin-bottom: 0;
+      font-size: rem-calc(16);
+      flex: 0 1 rem-calc(160);
+      font-weight: normal;
+      font-family: $font-bold;
+      text-align: center;
+      @include bp_max(430px) {
+        margin-right: 0;
+      }
+    }
+
+    .time-label {
+      margin: 0;
+      cursor: pointer;
+      position: relative;
+
+      input[type="radio"] {
+        opacity: 0;
+        position: absolute;
+      }
+      span {
+        display: block;
+        padding: 1rem 1rem;
+        width: 100%;
+      }
+      input[type="radio"]:focus ~ span {
+        background: $midGrey;
+        outline: 2px dotted $secondary !important;
+        outline-offset: 2px;
+      }
+
+      input[type="radio"]:checked ~ span {
+        background: $primary;
+        color: $white;
+      }
+    }
+  }
+}
+
+// additions for the form
+.no-donateAnHourResults {
+  display: none;
+  &.show {display: block;}
+  margin: rem-calc(30);
+  line-height: 2rem;
+}
+
+.selected-form-values {
+  font-weight: normal;
+  font-family: $font-bold;
+  font-size: rem-calc(18);
+
+  span {
+    color: $primary;
+  }
+}

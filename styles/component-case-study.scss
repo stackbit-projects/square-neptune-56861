@@ -1,0 +1,115 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+
+.c-caseStudy {
+  @include component-margins();
+
+  @include bp_max($tablet) {
+    .component-content {
+      display: flex;
+    }
+  }
+
+  &__wrapper {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+    border-radius: rem-calc(8);
+    background: $primary;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    @include bp_min($desktop) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__image {
+    height: rem-calc(320);
+    overflow: hidden;
+    border-radius: rem-calc(8);
+
+    max-width: 100%;
+    max-height: rem-calc(350);
+    margin: rem-calc(24 24 0 24);
+
+    @include bp_min($desktop) {
+      flex: 0 0 rem-calc(320);
+      margin: rem-calc(56);
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      font-family: 'object-fit: cover;';
+    }
+  }
+
+  &__content {
+    color: $tintBlue;
+    padding: rem-calc(24);
+
+    @include bp_min($desktop) {
+      padding: rem-calc(56 56 56 0);
+    }
+
+  }
+
+  &__title {
+    font-size: rem-calc(34);
+    line-height: rem-calc(46);
+  }
+
+  &__summary {
+
+  }
+
+  &__link {
+    margin: 0;
+
+    a {
+      @include cta-button();
+    }
+  }
+
+}
+
+
+
+@include bp_min($desktop) {
+  // when used in a 2/3 width
+  .medium-8, .medium-6,
+  .large-8, .large-6 {
+    .c-caseStudy  {
+
+    }
+
+    .c-caseStudy__wrapper {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .c-caseStudy__image {
+      order: 0;
+      flex: 0 0 auto;
+      height: auto;
+      margin: rem-calc(32 32 0 32);
+    }
+
+    .c-caseStudy__content {
+      padding: rem-calc(32);
+    }
+  }
+
+  // when in 50/50 width
+  .medium-6 {
+    .c-caseStudy .c-caseStudy__image {
+      height: rem-calc(320);
+    }
+  }
+}

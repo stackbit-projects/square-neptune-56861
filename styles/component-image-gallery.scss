@@ -1,0 +1,20 @@
+.gallery-inner-pwd {
+    width: 100%;
+    float: left;
+    img {
+        width: 100%;
+        height: auto;
+      }
+      figure {
+        display: block;
+        position: relative;
+        margin: 0;
+        a {
+            display: block;
+        }
+      }
+      figcaption {
+        display: none;
+      }      
+}
+

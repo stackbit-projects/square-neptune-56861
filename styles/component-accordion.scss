@@ -1,0 +1,110 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+
+.on-page-editor {
+    .accordion .toggle-content [scfieldtype="rich text"] {
+        display: block;
+    }
+}
+
+// accordion
+.accordion {
+    @include component-margins();
+    background: $white;
+
+    .items {
+        padding: 0;
+        margin: 0;
+        border-top: 2px dotted $midGrey;
+    }
+
+    .item {
+        @include clearfix();
+        list-style: none;
+        border-bottom: 2px dotted $midGrey;
+        margin: 0;
+        padding: 0;
+        display: block;
+        background: none;
+    }
+
+    .label {
+        background: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        white-space: unset;
+        font-weight: normal;
+        font-family: $font-bold;
+        font-size: rem-calc(18);
+        line-height: initial;
+        color: $primary;
+        pointer-events: none;
+
+        .scEnabledChrome & {
+            pointer-events: initial;
+        }
+    }
+
+    .component {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .toggle-header { // now a button
+        line-height: 1;
+        padding: rem-calc(24 0 24 48);
+        background-image: url(/images/accordion-plus--blue.svg);
+        background-repeat: no-repeat;
+        background-position: 0 center;
+        background-size: rem-calc(24);
+        background-color: $white;
+        width: 100%;
+        text-align: left;
+        display: block;
+
+        &:hover {
+            outline: none !important;
+            cursor: pointer;
+
+            p {
+                cursor: pointer;
+            }
+        }
+
+        &:focus {
+            outline: 2px dotted $secondary !important;
+            outline-offset: 2px;
+        }
+    }
+
+    .toggle-content {
+        float: left;
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .field-heading {
+        p {
+            margin: 0;
+            color: $primary;
+            font-weight: normal;
+            font-family: $font-bold;
+            font-size: rem-calc(18);
+            line-height: rem-calc(20);
+        }
+    }
+
+    .component-content .field-content {
+        margin: 0;
+    }
+
+    // open state
+    .toggle-header.active,
+    .item.active .toggle-header {
+        background-image: url(/images/accordion-minus--blue.svg);
+    }
+}
+
+@import 'styles/accordion/accordion-horizontal';

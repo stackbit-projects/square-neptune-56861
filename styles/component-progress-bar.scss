@@ -1,0 +1,146 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+
+/**
+    Example markup:
+    <div class="progress-bar">
+        <div class="progress-bar__fill js-progressBarFill"></div>
+        <ul class="js-progress-bar-ul">
+            <li class="progress-bar__item js-progress-bar-item is-selected is-active">
+            <div class="progress-bar__item__name">First Step</div>
+            <div class="progress-bar__item__indicator"></div>
+            <div class="progress-bar__item__circle">1</div>
+            </li>
+        </ul>
+    </div>
+*/
+
+.progress-bar {
+    width: 100%;
+    margin-bottom: rem-calc(75);
+    margin-top: rem-calc(75);
+    position: relative;
+    @include bp_max(800px) {
+        margin-bottom: rem-calc(40);
+        margin-top: rem-calc(40);
+    }
+    &__placeholder {
+        label {
+            display: none;
+        }
+        select {
+            display: none;
+        }
+    }
+    &__fill {
+        height: rem-calc(8);
+        width: 20%;
+        background-color: $primary;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        border-top-left-radius: rem-calc(4);
+        border-bottom-left-radius: rem-calc(4);
+    }
+    ul {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style-type: none !important;
+    }
+    &__item {
+        width: 100%;
+        position: relative;
+        &:before {
+            content: '';
+            width: 0;
+            height: rem-calc(28);
+            border-left: rem-calc(2) dashed $border-light-gray;
+            position: absolute;
+            top: 0;
+            left: 0;
+            @include bp_max(800px) {
+                display: none;
+            }
+        }
+        &:first-child {
+            .progress-bar__item__indicator {
+                border-top-left-radius: rem-calc(4);
+                border-bottom-left-radius: rem-calc(4);
+            }
+        }
+        &:last-child {
+            .progress-bar__item__indicator {
+                border-top-right-radius: rem-calc(4);
+                border-bottom-right-radius: rem-calc(4);
+            }
+            &:after {
+                content: '';
+                width: 0;
+                height: rem-calc(28);
+                border-left: rem-calc(2) dashed $border-light-gray;
+                position: absolute;
+                top: 0;
+                right: 0;
+                @include bp_max(800px) {
+                    display: none;
+                }
+            }
+        }
+        &.is-selected {
+            .progress-bar__item__name {
+                font-weight: normal;
+                font-family: $font-bold;
+            }
+            .progress-bar__item__circle {
+                border-color: $primary;
+            }
+        }
+        &.is-active {
+            .progress-bar__item__name {
+                font-weight: normal;
+                font-family: $font-bold;
+                font-size: $font-extramedium;
+                color: $primary;
+            }
+        }
+        &__indicator {
+            width: 100%;
+            height: rem-calc(8);
+            background: $midGrey;
+            position: relative;
+        }
+        &__circle {
+            width: rem-calc(32);
+            height: rem-calc(32);
+            border-radius: rem-calc(32);
+            position: absolute;
+            background: $white;
+            border: rem-calc(4) solid $midGrey;
+            left: 50%;
+            bottom: rem-calc(-10);
+            margin-left: rem-calc(-16);
+            font-size: rem-calc(15);
+            font-weight: normal;
+            font-family: $font-bold;
+            color: $tertiary;
+            text-align: center;
+            z-index: 1;
+        }
+        &__name {
+            width: 100%;
+            height: rem-calc(55);
+            text-align: center;
+            position: relative;
+            padding-bottom: rem-calc(27);
+            font-size: rem-calc(16);
+            font-weight: normal;
+            color: #505860;
+            @include bp_max(800px) {
+                display: none;
+            }
+        }
+    }
+}

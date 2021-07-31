@@ -1,0 +1,59 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+
+.c-imageSpotlight {
+
+  &__image {
+
+    @include bp_min($desktop) {
+
+      .c-imageSpotlight--sap & {
+        order: 0;
+        flex: 0 0 rem-calc(260);
+      }
+    }
+
+    .ar-16-9 {
+      .c-imageSpotlight--sap & {
+        padding-bottom: 100%;
+      }
+    }
+
+  }
+
+  &__content {
+
+    @include bp_min($desktop) {
+      .c-imageSpotlight--sap & {
+        padding: rem-calc(56 56 56 0);
+      }
+    }
+  }
+
+  &__link {
+    .c-imageSpotlight--sap & {
+      a {
+        background-image: url(/images/icon-download-blue.svg);
+      }
+      a:hover, a:focus {
+        background-image: url(/images/icon-download-blue.svg);
+      }
+    }
+  }
+
+}
+
+@include bp_min($desktop) {
+  // when used in a 2/3 width
+  .medium-8, .medium-6,
+  .large-8, .large-6 {
+    .c-imageSpotlight.c-imageSpotlight--sap .c-imageSpotlight__wrapper {
+      flex-direction: row;
+      align-items: center;
+    }
+    .c-imageSpotlight.c-imageSpotlight--sap .c-imageSpotlight__image {
+      flex: 0 0 rem-calc(260);
+      margin: rem-calc(48 16 48 48);
+    }
+  }
+}

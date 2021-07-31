@@ -1,0 +1,38 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+.promo {
+    background: $promo-bg;
+    overflow: hidden;
+    box-sizing: border-box;
+    >.component-content {
+        position: relative;
+        @include clearfix();
+    }
+    .zg-height-fix {
+        .field-promoicon {
+            margin-top: 100px;
+        }
+    }
+    .field-promoicon {
+        overflow: hidden;
+        width: 100%;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    .field-promolink {
+        margin-top: 5px;
+        padding-bottom: 10px;
+    }
+    &.image-full-size {
+        img {
+            margin-bottom: 10px;
+        }
+    }
+    @import "variants/promo/default";
+    @import "base/richtext/richtext";
+}
+@import "styles/promo/absolute-bottom-link";
+@import "styles/promo/promo-hero";
+@import "styles/promo/promo-shadow";

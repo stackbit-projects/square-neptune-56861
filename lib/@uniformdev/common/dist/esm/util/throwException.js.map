@@ -1,0 +1,1 @@
+{"version":3,"file":"throwException.js","sourceRoot":"","sources":["../../../src/util/throwException.ts"],"names":[],"mappings":"AAAA,MAAM,UAAU,cAAc,CAAC,OAAuB;IAClD,gCAAgC;IAChC,qEAAqE;IACrE,qDAAqD;IACrD,2EAA2E;IAC3E,kDAAkD;IAClD,IAAI,OAAO,OAAO,KAAK,QAAQ,IAAI,OAAO,CAAC,KAAK,EAAE;QAC9C,MAAM,OAAO,CAAC;KACjB;IACD,MAAM,IAAI,KAAK,CAAS,OAAO,IAAI,4DAA4D,CAAC,CAAC;AACrG,CAAC"}

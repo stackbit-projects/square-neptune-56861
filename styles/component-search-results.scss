@@ -1,0 +1,128 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+.search-results {
+    @import "base/reset/inputs";
+    .search-result-list {
+        @include clearfix();
+        width: 100%;
+        display: inline-flex;
+        flex-wrap: wrap;
+    }
+
+    li {
+        width: 100%;
+        margin: rem-calc(32) 0;
+        display: flex;
+        position: relative;
+        border-left: 5px solid $primary;
+        padding: rem-calc(0 0 0 16);
+
+        @include bp_min($desktop) {
+            padding: rem-calc(16 32);
+            border-left: 10px solid $primary;
+        }
+        &::before {
+            content: '';
+            height: 2px;
+            width: 100%;
+            top: rem-calc(-32);
+            left: 0;
+            background: $midGrey;
+            position: absolute;
+        }
+        @include bp_max(800px) {
+            flex-wrap: wrap;
+        }
+
+        .field-wrapper {
+            flex: 1;
+           // padding-left: rem-calc(47);
+            margin-top: rem-calc(22);
+            margin-bottom: rem-calc(25);
+            @include bp_max(800px) {
+                flex: auto;
+                width: 100%;
+                padding-left: 0;
+            }
+        }
+        .field-title,.field-navigationtitle {
+            display: block;
+            a {
+                font-size: rem-calc(24);
+                text-decoration: none;
+            }
+        }
+        .field-content {
+            margin-top: rem-calc(24);
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .field-image {
+            display: flex;
+            @include bp_max(800px) {
+                width: 100%;
+            }
+            a {
+                display: flex;
+                @include bp_max(800px) {
+                    width: 100%;
+                }
+            }
+            img {
+                width: 370px;
+                max-width: 370px;
+                height: 210px;
+                margin-right: rem-calc(48);
+                border-radius: rem-calc(8);
+                @include bp_max(800px) {
+                    width: 100%;
+                    margin-right: 0;
+                    margin-top: rem-calc(25);
+                    height: auto;
+                }
+            }
+        }
+    }
+    .search-results-overlay {
+        display: none;
+    }
+    &.loading-in-progress {
+        min-height: 200px;
+        .search-result-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            &:after {
+                content: "";
+                background-image: url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJibGFjayI+CiAgPHBhdGggIG9wYWNpdHk9Ii4yNSIgZD0iTTE2IDAgQTE2IDE2IDAgMCAwIDE2IDMyIEExNiAxNiAwIDAgMCAxNiAwIE0xNiA0IEExMiAxMiAwIDAgMSAxNiAyOCBBMTIgMTIgMCAwIDEgMTYgNCIvPgogIDxwYXRoIGZpbGw9JyNkZGRkZGQnIGQ9Ik0xNiAwIEExNiAxNiAwIDAgMSAzMiAxNiBMMjggMTYgQTEyIDEyIDAgMCAwIDE2IDR6Ij4KICAgIDxhbmltYXRlVHJhbnNmb3JtIGF0dHJpYnV0ZU5hbWU9InRyYW5zZm9ybSIgdHlwZT0icm90YXRlIiBmcm9tPSIwIDE2IDE2IiB0bz0iMzYwIDE2IDE2IiBkdXI9IjAuOHMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAvPgogIDwvcGF0aD4KPC9zdmc+);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                top: 50%;
+                left: 0;
+                right: 0;
+                margin: -30px auto 0;
+            }
+        }
+    }
+    &.loading-more-in-progress {
+        &:after {
+            content: "";
+            display: block;
+            @include loading-gif();
+            background-size: 50% 50%;
+            height: 100px;
+        }
+    }
+    .no-results {
+        padding: 5px;
+    }
+}

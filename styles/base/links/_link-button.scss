@@ -1,0 +1,51 @@
+
+.button-default, .default {
+    @include border-basic();
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    margin: 5px 0;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    background: #f6f6f6;
+    font-weight: normal;
+    font-family: $font-bold;
+    &:hover {
+        background: $bg-light-gray;
+    }
+}
+.button-success, .success {
+    @include border-basic();
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    margin: 5px 0;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    background: $btn-green-light;
+    font-weight: normal;
+    &:hover {
+        color: $text-white;
+        background: $btn-green;
+    }
+}
+.button-warning, .warning {
+    @include border-basic();
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    margin: 5px 0;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    background: $btn-red;
+    color: $text-white;
+    font-weight: normal;
+    font-family: $font-bold;
+    &:hover {
+        color: $text-white;
+        background: $btn-red-active;
+    }
+}

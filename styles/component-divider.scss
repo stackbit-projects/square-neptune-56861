@@ -1,0 +1,22 @@
+@import "abstracts/mixins";
+.divider {
+    hr {
+        margin: rem-calc(24) auto;
+        border: 0;
+        height: 0;
+        border-top: 2px solid $midGrey;
+    }
+
+    &.dashed {
+        hr {
+            border-top-style: dotted;
+        }
+    }
+
+    &.white-space-divider {
+        hr {
+            border-top-style: none;
+        }
+    }
+
+}

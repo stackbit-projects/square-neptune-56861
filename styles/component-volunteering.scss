@@ -1,0 +1,272 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+
+.c-volunteeringForm {
+    display: none;
+
+
+    &__results {
+        border-bottom: 2px solid $midGrey;
+        &.style-error {
+            .c-donateAnHourResults__opportunities {
+                &:before {
+                    background-image: url(/images/icon-error--red.svg);
+                    top: 0;
+                  }
+            }
+        }
+    }
+
+    &__apply {
+        margin-top: rem-calc(35);
+    }
+
+    &__description {
+        font-size: rem-calc(21);
+        margin-bottom: rem-calc(35);
+    }
+
+    h2 {
+      @include bp_max(800px) {
+        font-size: rem-calc(22);
+      }
+    }
+
+    h3 {
+      @include bp_max(800px) {
+        font-size: rem-calc(17);
+        line-height: 1.4em;
+      }
+    }
+
+    //@include box-shadow();
+    background: $tintBlue;
+    padding: rem-calc(80 0);
+    position: relative;
+
+    @include bp_max(800px) {
+      padding: rem-calc(40 0);
+    }
+    &:before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -30px;
+    margin-top: -29px;
+    border-radius: 0 0 16px 0;
+    background: white;
+    border: 2px solid $tintBlue;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  &:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: $tintBlue;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    margin-left: -webkit-calc(50% - 50vw);
+    margin-left: calc(50% - 50vw);
+    margin-right: -webkit-calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    z-index: -1;
+  }
+
+
+    .white-wrapper {
+        border-radius: rem-calc(8);
+      background: $white;
+
+      padding: rem-calc(16);
+      @include bp_min($desktop) {
+          padding: rem-calc(32 40);
+      }
+      @include bp_min($desktop-large) {
+          padding: rem-calc(65 80);
+      }
+    }
+    .form__donation {
+      display: flex;
+      margin-top: rem-calc(50);
+    }
+  }
+
+.c-volunteering {
+    &__input {
+        background-color: transparent !important;
+        background-image: url(/images/icon-human--blue.svg);
+        background-size: rem-calc(20);
+        background-repeat: no-repeat;
+        border: none !important;
+        outline: none !important;
+        background-position: left center;
+        font-size: rem-calc(17) !important;
+        padding-left: rem-calc(35) !important;
+        margin-bottom: 0 !important;
+        &:disabled {
+            cursor: default;
+        }
+        &:read-only {
+            cursor: default;
+        }
+        &:focus {
+            border: none !important;
+            outline: none !important;
+        }
+
+
+    }
+    &__content {
+        margin-bottom: rem-calc(80);
+
+        .c-donateAnHourResults__wrapper {
+            @include bp_max(800px) {
+                padding: 1.4rem 0;
+            }
+        }
+
+        .c-donateAnHourResults__title {
+            @include bp_max(800px) {
+                background-position: left top 8px;
+                text-align: left;
+            }
+        }
+
+        .c-donateAnHourResults__contents {
+            @include bp_max(800px) {
+                padding-left: rem-calc(30);
+            }
+        }
+    }
+    &__remove-link {
+        font-size: rem-calc(18);
+        position: relative;
+        padding-left: rem-calc(30);
+        flex: 0 0 auto;
+
+        &:before {
+            content: '';
+            width: rem-calc(16);
+            height: rem-calc(16);
+            background-image: url(/images/icon-close--blue.svg);
+            position: absolute;
+            left: 0;
+            top: rem-calc(6);
+        }
+    }
+    &__count {
+        padding-top: rem-calc(16);
+        font-weight: normal;
+        font-family: $font-bold;
+        font-size: rem-calc(18);
+        margin-bottom: rem-calc(35);
+        @include bp_max(800px) {
+            padding-top: rem-calc(10);
+            margin-bottom: rem-calc(20);
+        }
+        span {
+          text-decoration: underline;
+        }
+    }
+    &__age {
+        font-weight: bold;
+        p {
+            margin-bottom: rem-calc(30);
+        }
+    }
+    &__list-item {
+        display: flex;
+        align-items: center;
+        border-bottom: 2px solid $midGrey;
+        padding: rem-calc(22) rem-calc(36);
+        justify-content: space-between;
+        &.is-selected {
+            background: $tintBlue;
+        }
+        &--modified {
+            padding: rem-calc(30) rem-calc(45) rem-calc(30) rem-calc(36);
+            @include bp_max(900px) {
+                align-items: start;
+            }
+
+        }
+        @include bp_max(900px) {
+            padding: rem-calc(19);
+            flex-direction: column;
+            align-items: start;
+        }
+        &:last-child {
+            border-bottom: 0;
+        }
+        p {
+            margin-bottom: 0;
+            line-height: inherit;
+            font-size: inherit;
+        }
+        .c-donateAnHourResults__location,.c-donateAnHourResults__distance,.c-donateAnHourResults__opportunities {
+            width: 25%;
+            @include bp_max(900px) {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    }
+    &__apply {
+        width: rem-calc(140);
+        height: rem-calc(48);
+        display: flex;
+        align-items: center;
+        position: relative;
+        @include bp_max(800px) {
+            width: 100%;
+        }
+        label {
+            border: rem-calc(2) solid $primary;
+            border-radius: rem-calc(32);
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            top: 0;
+            left: 0;
+            line-height: rem-calc(43);
+            padding-left: rem-calc(60);
+        }
+        input[type="checkbox"] {
+            border: rem-calc(2) solid $primary;
+            position: relative;
+            z-index: 3;
+            margin-left: rem-calc(21);
+            cursor: pointer;
+            &:checked {
+                border: 2px solid $lightGrey;
+            }
+            &:disabled {
+                opacity: 1;
+                cursor: default;
+                border-color:$midGrey;
+            }
+            &:disabled + label {
+                cursor: default;
+                color: $midGrey;
+                background: $white;
+                border: 2px solid $midGrey;
+
+            }
+            &:checked + label {
+                background: $primary;
+                color: $white;
+            }
+        }
+    }
+}

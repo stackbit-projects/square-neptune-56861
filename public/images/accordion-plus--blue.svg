@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>Icons / Fill / General / Circle - Plus Copy 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M12,0 C5.37225,0 0,5.37 0,12 C0,18.63 5.37225,24 12,24 C18.62775,24 24,18.63 24,12 C24,5.37 18.62775,0 12,0 L12,0 Z M17.1428571,11.1428571 L12.8571429,11.1428571 L12.8571429,6.85714286 C12.8571429,6.38571429 12.474,6 12,6 C11.526,6 11.1428571,6.38571429 11.1428571,6.85714286 L11.1428571,11.1428571 L6.85714286,11.1428571 C6.38314286,11.1428571 6,11.5285714 6,12 C6,12.4714286 6.38314286,12.8571429 6.85714286,12.8571429 L11.1428571,12.8571429 L11.1428571,17.1428571 C11.1428571,17.6142857 11.526,18 12,18 C12.474,18 12.8571429,17.6142857 12.8571429,17.1428571 L12.8571429,12.8571429 L17.1428571,12.8571429 C17.6168571,12.8571429 18,12.4714286 18,12 C18,11.5285714 17.6168571,11.1428571 17.1428571,11.1428571 L17.1428571,11.1428571 Z" id="path-1"></path>
+    </defs>
+    <g id="Main-Site---Main-Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Main---Component-Library-2" transform="translate(-360.000000, -526.000000)">
+            <g id="Accordion">
+                <g id="Accordion---Full-Width" transform="translate(360.000000, 432.000000)">
+                    <g transform="translate(0.000000, 72.000000)" id="Bullet-1">
+                        <g transform="translate(0.000000, 18.000000)">
+                            <g id="Icons-/-Fill-/-General-/-Circle---Plus" transform="translate(0.000000, 4.000000)">
+                                <g id="Icons-/-Tint-/-Blue">
+                                    <mask id="mask-2" fill="white">
+                                        <use xlink:href="#path-1"></use>
+                                    </mask>
+                                    <use id="Mask" fill="#AAAAAA" xlink:href="#path-1"></use>
+                                    <g id="Colours-/-Primary-Palette-/-Blue-/-" mask="url(#mask-2)">
+                                        <rect id="Rectangle-3" fill="#002C5C" x="0" y="0" width="24" height="24"></rect>
+                                        <g id="Colours-/-Tints-&amp;-Shade-/-None" fill="#FFFFFF" fill-opacity="0">
+                                            <rect id="Rectangle-9" x="0" y="0" width="24" height="24"></rect>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

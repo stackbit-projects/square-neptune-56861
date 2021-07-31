@@ -1,0 +1,139 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+
+html, body {
+  &.no-scroll {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+}
+
+.c-browserBanner {
+
+  display: none;
+  height: 0;
+  width: 0;
+
+  &.showing {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+    overflow: auto;
+  }
+
+  .component-content {
+    max-width: 90%;
+    @include bp_max($tablet) {
+      height: 100%;
+      margin-top: 5%;
+      margin-bottom: 5%;
+    }
+  }
+
+  &__wrapper {
+    margin: 0;
+
+    padding: rem-calc(16 32);
+    @include bp_min($tablet) {
+      padding: rem-calc(32 66);
+    }
+
+    @include box-shadow();
+    background: $white;
+    h2,h3,h4,p,ul,li {color: $black !important;}
+  }
+
+  &__intro {
+    a:link, a:visited {
+      color: $primary;
+    }
+    ul {
+      margin: 0 0 0 1.625rem;
+      li {
+        list-style-type: disc;
+        margin: 0 0 1.5rem 0;
+        line-height: 1.5em;
+      }
+    }
+    ol {
+      counter-reset: ol-counter;
+      margin: 0 0 1.5rem 0;
+      padding: 0;
+      list-style-type: none;
+      li {
+        counter-increment: ol-counter;
+        position: relative;
+        padding: 0 0 0 2.5rem;
+        margin: 0 0 1.5rem 0;
+        line-height: 1.5em;
+        &::before {
+          content: counter(ol-counter) "";
+          color:$white;
+          background-color: $primary;
+          font-weight: normal;
+          font-family: $font-bold;
+          display: inline-block;
+          position: absolute;
+          left: 0;
+          min-width: rem-calc(23);
+          border-radius: rem-calc(4);
+          text-align: center;
+        }
+      }
+    }
+    @include bp_min($tablet) {
+      padding-top: rem-calc(16);
+    }
+  }
+
+  &__footer {
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+
+      // flexbox for older browsers
+      -webkit-flex-wrap: wrap;
+      display: -webkit-flex;
+    }
+
+
+    li {
+      display: flex;
+      align-items: center;
+      margin-right: 40px;
+      margin-bottom: 10px;
+      @include bp_max($tablet) {
+        margin-right: 0;
+        width: 100%;
+      }
+
+      a {
+        margin-left: 10px;
+      }
+      a:link, a:visited {
+        color: $primary;
+      }
+      img {
+        height: 46px;
+        width: 46px;
+
+      }
+    }
+  }
+}

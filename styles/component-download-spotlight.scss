@@ -1,0 +1,113 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+
+$file-types: "jpeg", "jpg", "png", "pdf", "doc", "docx", "xls", "xlsx", "mp3";
+
+.c-downloadSpotlight {
+  @include component-margins();
+
+  &__wrapper {
+    margin: 0;
+    border-radius: rem-calc(8);
+    border: 2px solid $midGrey;
+
+    padding: rem-calc(32);
+    padding-top: rem-calc(80);
+
+    position: relative;
+    font-size: rem-calc(18);
+    line-height: rem-calc(26);
+
+    background: $white;
+
+    @include bp_min($tablet) {
+      padding: rem-calc(32 48);
+      padding-right: rem-calc(64);
+      padding-left: rem-calc(86);
+      font-size: rem-calc(20);
+      line-height: rem-calc(32);
+    }
+
+    @include bp_min($desktop) {
+      padding-left: rem-calc(96);
+    }
+
+    &:before {
+      display: block;
+      content: "";
+      height: rem-calc(60);
+      width: calc(100% + 4px);
+      position: absolute;
+      background-color: $highlightBlue;
+      background-size: 24px;
+      background-repeat: no-repeat;
+      background-position: top 20px left 32px;
+      background-image: url(/images/icon-download-blue.svg);
+      left: -2px;
+      top: -2px;
+      border-radius: rem-calc(8 8 0 0);
+    }
+
+    @include bp_min($tablet) {
+      &:before {
+        width: rem-calc(60);
+        height: calc(100% + 4px);
+        background-position: top 32px center;
+        border-radius: rem-calc(8 0 0 8);
+      }
+    }
+
+  }
+
+  &__title,
+  &__summary {
+    margin-bottom: rem-calc(12);
+  }
+
+  &__link {
+    padding: 0;
+    margin: 0;
+    font-size: rem-calc(18);
+    position: relative;
+    display: flex;
+  }
+
+  .text-wrapper {
+    vertical-align: top;
+    display: inline-block;
+    width: calc(100% - 40px);
+
+    span {
+      vertical-align: top;
+    }
+  }
+
+  &__link > a > span {
+    display: flex;
+  }
+
+  .field-filetypeicon {
+    display: inline-block;
+    margin-right: rem-calc(16);
+    height: auto;
+    width: rem-calc(20);
+    vertical-align: top;
+    position: relative;
+
+    > span {
+      background-size: 22px;
+      width: rem-calc(24);
+      height: 100%;
+      display: block;
+      background-position: left center;
+      background-repeat: no-repeat;
+      background-image: url(/images/icon-download-blue.svg);
+    }
+
+    @each $file in $file-types {
+      > span.#{$file} {
+        background-image: url(/images/icon-#{$file}-blue.svg);
+      }
+    }
+  }
+}

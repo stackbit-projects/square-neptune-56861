@@ -1,0 +1,25 @@
+@media print {
+
+@page {
+    margin: 0.5cm;
+}
+
+header, footer {
+    display: none;
+}
+
+// removes sitecore menu when logged in 
+#scWebEditRibbon {
+    display: none;
+}
+
+// removes cookie warning
+.privacy-warning {
+    display: none;
+}
+
+.sitecore-form {
+    page-break-inside: avoid;
+}
+
+}

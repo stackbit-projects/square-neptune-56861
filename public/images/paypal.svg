@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="38px" height="24px" viewBox="0 0 38 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>pp-acceptance-small</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Main-Site---Payment-Button-Amends" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop---Single-Donation---Google-Pay-Step-1" transform="translate(-1286.000000, -1341.000000)">
+            <g id="Wide" transform="translate(464.000000, 144.000000)">
+                <g id="3.-Payment-Details" transform="translate(0.000000, 919.000000)">
+                    <g id="PayPal" transform="translate(104.000000, 226.000000)">
+                        <g id="Paypal" transform="translate(520.000000, 40.000000)">
+                            <image id="pp-acceptance-small" x="198" y="12" width="38" height="24" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAaCAIAAABKLomcAAAABGdBTUEAALGOfPtRkwAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAKKADAAQAAAABAAAAGgAAAAChB41KAAADJklEQVRIDWM8ffr0v3///v//z0BHwMTExAK0VVZWlouLi472Mjx58oQF6FceHh5eXl56WvzixQsmoH1AT9PTVqBdQN+CLB4QMGox3YJ95AU1C1rYAkuw3M5dFy89+/H/v6gAZ3aUqbetMpoaNO6vv/8zjr29+e7Xr///pbhYCnX5HSQ50NSkHnnDwcw42VIYLo4e1G8/fl+27dr1x+/VFIW3H7qT1rTt24/fcNVYGS9+/Fty5/OT73+V+Fg33fuadewNmrLPv/+tvv/1+fe/yOLoPn7x5sv7N19qcuyas+yOnHvMyMh46+G7acvOPHj52Upf+t2n7/4Oasu2X43z1bM3lt1y+M6GXdddQsx//2Gs0BfI1OTd+/Q7GxPj5fe/uy5+ePPzr4Uo+5c//71lub79+Q9k47P48cvPDL/+LNh4adWOa4/uv82IM4uv2fzy9VdPe5WeRSd//PwT5Ky+cueNd59+KMsIhOevdbWU/83NyfD3S/flD0D09vufeDWeoF0v/jAw2EtyNF/4IMzOrCPE+vvnXx1BNnwW37gPCihNRRF5Sb62fMffv//OmHZ438Z0RxO5z99+Hb/wxM5ILtRNY9uBW8H5a/h52ec3+056+peB8b+GAKssF4u/lciDz7/vvP15MVJOT5Dt3uc/X//8+/zrPyMzkyw3Mz6LT1x6xsDCNKfBS06CD6huy6E7QHLW6vP7Tz1Yu+WKubEcExNjnI/OgpVnXz39uHFetKAQ9/7jz5lZmZc6iAmygVLM/Ft/GP4xTLrySZST+fDjb2FqvNc//OZkY5LgwmuxhAhPiK+uiAC0lnQ2V8jLd9x76PavP3897FVcrJSARrOzsTD8+5+dYuVnpwrkAtOULA8LPys0nYYq8Rw1+Hn82Q9tETZXeS5/eS6gxZFK3ELsKBYznDhx4sOHD8Dqgkjw9sM3Jc+pWn4zPn/9SaQWTGXXr19HT9VAH+AHzMxM06s9tFRFebhQEgt+XZiyJFvMz8PuZg0KcAoBNGIoNIUM7aMWkxFo5GkBBTWwlUueZrJ1AasAFqCtjx49YmZGzd1kG0mcxu/fvwMAnzqidRQmSfwAAAAASUVORK5CYII="></image>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

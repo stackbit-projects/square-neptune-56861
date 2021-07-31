@@ -1,0 +1,49 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+
+.cookie-preferences {
+    margin: rem-calc(12) auto;
+    padding: rem-calc(24);
+
+    @include bp_min($desktop) {
+        margin: rem-calc(24) auto;
+        padding: rem-calc(40);
+    }
+
+    width: 100%;
+    border: 2px solid $midGrey;
+
+    border-radius: rem-calc(8);
+    background: $white;
+
+    &__section {
+        margin-bottom: rem-calc(24);
+        legend {
+            font-weight: normal;
+            font-family: $font-bold;
+            margin-bottom: rem-calc(16);
+        }
+        >p {
+            margin-bottom: 0;
+        }
+    }
+
+    &__choices {
+        margin-top: rem-calc(24);
+    }
+
+    &__choice {
+        display: inline-flex;
+        margin-right: rem-calc(32);
+        position: relative;
+
+        label {
+            line-height: rem-calc(22);
+        }
+    }
+
+    &__button {
+        margin: 0 !important;
+        @include cta-button();
+    }
+}

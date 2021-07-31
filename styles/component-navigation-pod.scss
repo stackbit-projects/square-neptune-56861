@@ -1,0 +1,109 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+
+
+.c-navigationPod {
+  width: 100%;
+  margin: rem-calc(12) auto;
+  @include bp_min($tablet) {
+    margin: rem-calc(16) auto;
+  }
+  @include bp_min($desktop) {
+      margin: rem-calc(24) auto;
+  }
+
+  padding: 0;
+
+  &__wrapper {
+    margin: 0;
+    padding: 0;
+    background: $white;
+    min-height: rem-calc(100);
+    transition: min-height .25s ease-in-out;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    border-radius: rem-calc(8);
+    overflow: hidden;
+
+    border: 2px solid $midGrey;
+    .row-bg--blue & {
+      border-color: $tintBlue;
+    }
+    .row-bg--darkBlue & {
+      border-color: $primary;
+    }
+
+  }
+
+  &__image {
+    // fixed at 16:9
+    padding-bottom: 56.25%;
+
+    .c-navigationPod--large & {
+      padding-bottom: 75%;
+    }
+
+    overflow: hidden;
+    display: block;
+    height: 0;
+    position: relative;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      font-family: 'object-fit: cover;';
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+    }
+  }
+
+  &__content {
+    padding: rem-calc(24);
+
+    @include bp_min($desktop) {
+      padding: rem-calc(32);
+    }
+  }
+
+  &__link a {
+    font-size: rem-calc(26);
+    line-height: rem-calc(36);
+    text-decoration: underline;
+  }
+
+  &__text {
+    margin: rem-calc(16) 0 0 0;
+    display: block;
+  }
+
+  // on .c-navigationPod--large variant {
+  &__cta {
+    margin: rem-calc(24) 0 0 0;
+    display: block;
+
+    a {
+      @include cta-button();
+    }
+  }
+
+}
+
+
+// 50/50 width
+/*
+@include bp_min($desktop) {
+  .large-6, .medium-6 {
+    .c-navigationPod .c-navigationPod__image {
+      height: rem-calc(400);
+    }
+  }
+}
+*/
+
+
+// DYNAMIC NAVIGATION PODS WHEN THEY'RE IN A COLUMN SPLITTER
+
+.row.component.column-splitter .small-12 .row.component.column-splitter.c-dynamicNavigationPods {
+  padding: 0 !important;
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"getNextConfig.js","sourceRoot":"","sources":["../../../src/utils/getNextConfig.ts"],"names":[],"mappings":";;;;;;AAAA,uDAAoC;AAEpC,6CAAoD;AAEpD,SAAgB,aAAa;IACzB,OAAO,CAAC,gBAAS,EAAE,IAAI,uBAAc,CAAC,QAAQ,CAAC,CAAC,CAAC,mBAAmB,IAAI,uBAAc,CAAC,gBAAgB,CAAC,CAAC;AAC7G,CAAC;AAFD,sCAEC"}

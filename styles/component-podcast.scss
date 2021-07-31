@@ -1,0 +1,163 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+
+.c-podcast {
+  @include component-margins();
+
+  &__wrapper {
+    padding: 0;
+    margin: 0;
+
+    border-radius: rem-calc(8);
+    background: $white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    @include bp_min($desktop) {
+      border: 2px solid $midGrey;
+      .row-bg--blue & {
+        border-color: $tintBlue;
+      }
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__image {
+    overflow: hidden;
+
+    max-width: 100%;
+    margin: 0;
+
+    @include bp_min($desktop) {
+      flex: 0 0 rem-calc(480);
+      margin: rem-calc(56);
+      order: 2;
+    }
+
+    .ar-16-9 {
+        // fixed at 16:9
+      padding-bottom: 56.25%;
+      overflow: hidden;
+      display: block;
+      height: 0;
+      position: relative;
+      border-radius: rem-calc(8);
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      font-family: 'object-fit: cover;';
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+    }
+
+    > div:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url(/images/podcast-play-btn.svg);
+      background-position: center center;
+      background-repeat: no-repeat;
+      z-index: 1;
+    }
+
+    &.mp3-playing > div:before {
+      background-image: url(/images/podcast-pause-btn.svg);
+    }
+  }
+
+  &__content {
+    padding: rem-calc(24 0);
+
+    @include bp_min($desktop) {
+      padding: rem-calc(56 0 56 56);
+    }
+  }
+
+  &__title {
+    font-size: rem-calc(34);
+    line-height: rem-calc(46);
+  }
+
+  &__summary {
+
+  }
+
+  &__mp3 {
+    width: 100%;
+  }
+
+  &__link {
+    padding: 0;
+    margin: rem-calc(16 24);
+
+    @include bp_min($desktop) {
+      margin: rem-calc(16 0 0 0);
+    }
+    font-size: rem-calc(18);
+    position: relative;
+
+    a {
+      padding-left: rem-calc(36);
+      display: inline-block;
+    }
+
+    a:before {
+      content: '';
+      display: inline-block;
+      width: rem-calc(24);
+      height: rem-calc(24);
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-size: 20px;
+      background-repeat: no-repeat;
+      background-position: center left;
+      background-image: url(/images/icon-mp3-blue.svg);
+    }
+
+  }
+
+}
+
+@include bp_min($desktop) {
+  // when used in a 2/3 width
+  .medium-8, .medium-6,
+  .large-8, .large-6 {
+    .c-podcast  {
+
+    }
+
+    .c-podcast__wrapper {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .c-podcast__image {
+      order: 0;
+      flex: 0 0 auto;
+      height: auto;
+      margin: rem-calc(32 32 0 32);
+    }
+
+    .c-podcast__content {
+      padding: rem-calc(32);
+    }
+  }
+
+  // when in 50/50 width
+  .medium-6 {
+    .c-podcast .c-podcast__image {
+      height: rem-calc(320);
+    }
+  }
+}

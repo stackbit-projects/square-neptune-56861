@@ -1,0 +1,182 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+
+.c-hero {
+  width: 100%;
+  margin: rem-calc(0 0 32 0);
+  @include bp_min($desktop) {
+    transform: translateY(-2px);
+    z-index: 11;
+  }
+  position: relative;
+
+  &__wrapper {
+    background: $white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @include bp_min($desktop) {
+      flex-direction: row;
+      align-items: center;
+      min-height: rem-calc(560);
+      height: rem-calc(500); // for IE11
+    }
+
+    position: relative;
+  }
+
+  &__image {
+    display: block;
+
+    height: rem-calc(280);
+
+    @include bp_min($desktop) {
+      position: absolute;
+      top: 0;
+      height: 100%;
+    }
+
+    background-size: cover;
+    background-position: center center;
+    z-index: 1;
+
+
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+
+  &__content {
+    margin: 0;
+    padding: rem-calc(24);
+    width: 100vw;
+    clear: both;
+    float: none;
+    margin: 0 0 0 -1rem;
+    background-color: $primary;
+    position: relative;
+    z-index: 2;
+    padding-bottom: rem-calc(40);
+
+    @include bp_min($tablet) {
+      margin-left: -1.5rem;
+    }
+    @include bp_min($desktop) {
+      width: auto;
+      margin: 0;
+      flex: 0 0 auto;
+      max-width: rem-calc(440);
+      padding: rem-calc(34);
+      border-radius: rem-calc(8);
+    }
+  }
+
+  &__title {
+    font-size: rem-calc(34);
+    line-height: rem-calc(46);
+
+    @include bp_min($desktop) {
+      font-size: rem-calc(50);
+      line-height: rem-calc(62);
+    }
+
+    color: $white;
+  }
+
+  &__text {
+    font-size: rem-calc(18);
+    line-height: rem-calc(24);
+
+    @include bp_min($desktop) {
+      font-size: rem-calc(22);
+      line-height: rem-calc(32);
+    }
+    color: $white;
+    font-weight: normal;
+    font-family: $font-bold;
+  }
+
+  &__cta {
+    a {
+      @include cta-button();
+    }
+
+    a:focus {
+      outline-color: $secondary;
+    }
+  }
+
+}
+
+.c-hero--secondary.c-hero {
+  @include bp_max($desktop) {
+    margin-bottom: 0;
+  }
+}
+.c-hero--secondary .c-hero {
+  &__wrapper {
+    @include bp_min($desktop) {
+      min-height: rem-calc(500);
+      align-items: flex-end;
+      margin-bottom: 0;
+    }
+  }
+
+  &__content {
+    width: 100vw;
+    flex: 0 0 auto;
+    border-bottom: 0;
+    position: relative;
+    z-index: 2;
+
+    @include bp_min($desktop) {
+      transform: translateY(-50%);
+      width: auto;
+      max-width: 100%;
+    }
+  }
+
+  &__title {
+    margin: 0;
+  }
+}
+
+.c-hero--secondary.c-hero--noimage .c-hero {
+  &__wrapper {
+    @include bp_min($desktop) {
+      min-height: rem-calc(240);
+      align-items: flex-end;
+      margin-bottom: rem-calc(72);
+    }
+  }
+
+  &__content {
+    background-color: $white;
+    @include bp_min($desktop) {
+      transform: none;
+      padding: 0;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    color: $primary;
+    text-shadow: none;
+  }
+}
+
+// if the main hero is used first in the main content after a breadcrumb has been placed..
+.c-breadCrumb + .c-hero {
+  @include bp_min($desktop) {
+    margin-top: rem-calc(-24);
+    position: relative;
+  }
+}
+
+
+// if the secondary hero is used first in the main content after a breadcrumb has been placed..
+.c-breadCrumb + .c-hero--secondary {
+  //z-index: 1;
+}

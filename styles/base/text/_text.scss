@@ -1,0 +1,6 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+
+.text-color-primary {
+    color: $primary;
+}

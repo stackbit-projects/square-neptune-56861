@@ -1,0 +1,482 @@
+
+@import "abstracts/vars";
+@import "abstracts/mixins";
+@import "abstracts/functions";
+@import "base/fontawesome/font-awesome";
+@import "base/text/text";
+@import "styles/hr/hr";
+
+html {
+    font-size: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-bottom: 0px;
+}
+
+body {
+    margin: 0;
+    &.on-page-editor {
+       //background: $page-bg-editor !important;
+       a {
+           border: none;
+           font-weight: normal;
+           font-size: initial;
+       }
+
+       a:focus {
+           outline: none;
+       }
+    }
+    &.remove-triangle {
+        .row-bg {
+            &:before {
+                display: none !important;
+            }
+        }
+    }
+    &.is-overflow-hidden {
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        #content {
+            padding-top: $headerHeight;
+            padding-right: rem-calc(14);
+        }
+
+        .c-chatbot,
+        .c-footer__backtotop {
+            display: none;
+            pointer-events: none;
+        }
+
+    }
+
+    font-size: rem-calc(18);
+    font-family: $font-base;
+    color: $primary;
+
+    h1,h2,h3,h4,h5,h6 {
+        font-family: $font-bold;
+        font-weight: normal;
+        font-style: normal;
+        margin: rem-calc(0 0 24 0);
+        line-height: rem-calc(32);
+    }
+
+    h1 {
+        font-family: $font-heavy;
+        font-size: rem-calc(50);
+        line-height: rem-calc(62);
+    }
+
+    h2 {
+        font-size: rem-calc(34);
+        line-height: rem-calc(46);
+    }
+
+    h3 {
+        font-size: rem-calc(26);
+        line-height: rem-calc(36);
+    }
+
+    h4 {
+        font-size: rem-calc(22);
+        line-height: rem-calc(32);
+    }
+
+    h5 {
+        font-size: rem-calc(20);
+        line-height: rem-calc(28);
+    }
+
+    h6 {
+        font-size: rem-calc(18);
+    }
+
+    h1 a,
+    h2 a,
+    h3 a,
+    h4 a,
+    h5 a,
+    h6 a {
+        color: $primary;
+        border-bottom: 0.1rem solid;
+    }
+
+    h1 a:hover,
+    h2 a:hover,
+    h3 a:hover,
+    h4 a:hover,
+    h5 a:hover,
+    h6 a:hover {
+        border-bottom-color: $white;
+        outline: none !important;
+    }
+
+    h1 a:focus,
+    h2 a:focus,
+    h3 a:focus,
+    h4 a:focus,
+    h5 a:focus,
+    h6 a:focus {
+        outline: 3px solid $primary;
+    }
+
+    p {
+        margin: rem-calc(0 0 24 0);
+        font-size: rem-calc(18);
+        line-height: rem-calc(24);
+        vertical-align: top;
+        font-style: normal;
+    }
+
+    a {
+        color: $primary;
+        font-weight: normal;
+        font-family: $font-bold;
+        text-decoration: underline;
+
+        &:hover {
+            color: #019bec;
+            text-decoration: none;
+        }
+
+        &:focus {
+            color: $primary;
+            outline: 2px solid $secondary;
+            outline-style: dotted;
+            outline-offset: 2px;
+            z-index: 99;
+            position: relative;
+        }
+    }
+
+    input,
+    button,
+    select {
+        &:focus {
+            outline: 2px dotted $secondary !important;
+            outline-offset: 2px;
+            z-index: 2;
+            position: relative;
+        }
+    }
+
+    strong {
+        font-weight: normal;
+        font-family: $font-bold;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    #content ul {
+        list-style-type: disc;
+    }
+
+    // structural changes
+    .component {
+        padding: 0;
+    }
+    @media screen and (min-width: 40em) {
+        .medium-4 {
+            width: 33%;
+        }
+    }
+
+    .row {
+        max-width: rem-calc(1296); // including the padding either side
+        padding: rem-calc(0 16);
+        display: block;
+        clear: both;
+        float: none;
+    }
+
+    #content.row > .c-mainContent > .component-content > .row,
+    .row > .row {
+        padding: 0;
+    }
+
+    #content>.component.columns.row-bg>.component-content {
+        padding: rem-calc(24 8);
+    }
+
+    #content.row .component>.columns>.row {
+        padding: 0;
+    }
+
+    @include bp_min($tablet) {
+        .row {
+            padding: rem-calc(0 24)
+        }
+        #content > .component.columns.row-bg > .component-content {
+            padding: rem-calc(0 32)
+        }
+    }
+
+    @include bp_min($desktop) {
+        .row {
+            padding: rem-calc(0 48);
+        }
+        #content > .component.columns.row-bg > .component-content {
+            padding: rem-calc(0 48);
+        }
+    }
+
+
+    // BG colour rows
+    #content > .component.columns.row-bg {
+        position: relative;
+        display: inline-block;
+
+        &.column-splitter {
+            margin-top: rem-calc(16);
+            margin-bottom: rem-calc(16);
+
+            @include bp_min($desktop) {
+                margin-top: rem-calc(40);
+                margin-bottom: rem-calc(40);
+            }
+        }
+
+        &:before {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin-left: -30px;
+            margin-top: -29px;
+            border-radius: 0 0 16px 0;
+            background: white;
+            border: 2px solid $tintBlue;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        > .component-content {
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            margin-right: calc(50% - 50vw);
+            background: $tintBlue;
+            padding-top: rem-calc(40);
+            padding-bottom: rem-calc(40);
+
+            @include bp_max($tablet) {
+                > div {
+                    margin: rem-calc(0 16);
+                }
+            }
+
+            @include bp_min($tablet) {
+                padding-top: rem-calc(72);
+                padding-bottom: rem-calc(72);
+            }
+
+            @include bp_min($desktop-large) {
+                padding-top: rem-calc(88);
+                padding-bottom: rem-calc(88);
+
+                > div {
+                    max-width: rem-calc(1200);
+                    margin: 0 auto;
+                }
+
+                > div.splitter-wrapper {
+                    max-width: rem-calc(1248);
+                }
+            }
+
+            // used for manual bg-colour application (e.g. donate an hour form)
+            > .white-wrapper {
+                @include box-shadow();
+                background: $white;
+
+                padding: rem-calc(16);
+                @include bp_min($desktop) {
+                    padding: rem-calc(32 40);
+                }
+                @include bp_min($desktop-large) {
+                    padding: rem-calc(48 80);
+                }
+            }
+        }
+
+        &.row-bg--grey {
+            margin-bottom: 0 !important;
+            &:before {
+                border-color: $midGrey;
+            }
+            > .component-content {
+                background: $white;
+                border-top: 2px solid $midGrey;
+                padding-bottom: 0 !important;
+            }
+        }
+
+        &.row-bg--darkBlue {
+            &:before {
+                border-color: $primary;
+            }
+            > .component-content {
+                background: $primary;
+            }
+        }
+    }
+    // handling row bgs directly beneath row bgs
+    .component.columns.row-bg--blue + .component.columns.row-bg--blue,
+    .component.columns.row-bg--grey + .component.columns.row-bg--grey,
+    .component.columns.row-bg--darkBlue + .component.columns.row-bg--darkBlue {
+        margin-top: rem-calc(-48) !important;
+
+        @include bp_min($tablet) {
+            margin-top: rem-calc(-80) !important;
+        }
+        @include bp_min($desktop) {
+            margin-top: rem-calc(-104) !important;
+        }
+        @include bp_min($desktop-large) {
+            margin-top: rem-calc(-112) !important;
+        }
+
+        &:before {
+            display: none !important;
+        }
+        > .component-content {
+            padding-top: 0 !important;
+        }
+    }
+
+    // used for the faux wrapper that gets added by js
+    .column-splitter.row-bg > div > .splitter-wrapper:after {
+        content: ' ';
+        display: table;
+        clear: both;
+    }
+
+    .column-splitter.row-bg + .column-splitter:not(.row-bg) {
+        padding-top: 1rem;
+    }
+
+    @include bp_min($tablet) {
+        .column-splitter.row-bg > div > .splitter-wrapper > .medium-4,
+        .column-splitter.row-bg > div > .splitter-wrapper > .medium-6 {
+            .component:first-of-type {margin-top: 0;}
+            .component:last-of-type {margin-bottom: 0;}
+        }
+    }
+
+
+    // columns
+    #content .column-splitter,
+    #content .column-splitter.row-bg .splitter-wrapper {
+
+        display: flex;
+        flex-wrap: wrap;
+
+        @include bp_min($tablet) {
+            width: calc(100% + 24px);
+            margin-left: rem-calc(-12);
+            margin-right: rem-calc(-12);
+        }
+        @include bp_min($desktop) {
+            width: calc(100% + 48px);
+            margin-left: rem-calc(-24);
+            margin-right: rem-calc(-24);
+        }
+
+        & > .columns {
+            padding: 0 !important;
+
+            @include bp_min($tablet) {
+                padding: rem-calc(0 12px) !important;
+            }
+
+            @include bp_min($desktop) {
+                padding: rem-calc(0 24px) !important;
+            }
+        }
+    }
+
+    #content .column-splitter.row-bg .splitter-wrapper {
+
+        @include bp_min($desktop) {
+            width: calc(100% + 48px);
+            margin-left: rem-calc(-24);
+            margin-right: rem-calc(-24);
+        }
+
+        // for rich-text intro of columns
+        & > .columns > .rich-text {
+            margin-top: rem-calc(8);
+            margin-bottom: 0;
+
+            @include bp_min($tablet) {
+                margin-bottom: rem-calc(8);
+                margin-top: 0;
+            }
+            @include bp_min($desktop-large) {
+                margin-bottom: rem-calc(24);
+            }
+        }
+
+    }
+
+    // for dynamic pods, which sit inside their own columns, need to handle margin seperately
+    #content .column-splitter.row-bg.c-dynamicNavigationPods .splitter-wrapper {
+
+        > .columns {
+            @include bp_min($tablet) {
+                margin: rem-calc(12 0);
+            }
+            @include bp_min($desktop) {
+                margin: rem-calc(24 0);
+            }
+        }
+
+        .large-6:nth-of-type(-n+2),
+        .large-4:nth-of-type(-n+3) {
+            margin-top: 0;
+        }
+
+        .large-6:nth-last-of-type(-n+2),
+        .large-4:nth-last-of-type(-n+3) {
+            margin-bottom: 0;
+        }
+
+    }
+} // body
+
+.xa-variable {
+    border: 0px;
+    padding: 1px;
+    margin: 0px;
+    background-color: #ebebe4;
+    color: #545454;
+    user-select: none;
+    pointer-events: none;
+
+}
+
+.display-none {
+    display: none !important;
+}
+
+//Navigation Bar fix
+#breadcrumbMenuSubcontrol_context_menu * {
+    box-sizing: initial;
+}
+
+//End navigation bar fix
+
+.privacy-warning {
+    display: none;
+}

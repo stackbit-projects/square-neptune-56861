@@ -1,0 +1,141 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+
+.c-social {
+  @include component-margins();
+
+  &__wrapper {
+    padding: rem-calc(16 24);
+    margin: 0;
+    width: 100%;
+
+    background: $white;
+    border: 2px solid $midGrey;
+    border-radius: rem-calc(8);
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    @include bp_min($desktop) {
+      padding: rem-calc(32 48);
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .c-social--blue & {
+      background: $tintBlue;
+      color: $primary;
+    }
+  }
+
+  &__text {
+    margin: rem-calc(0 40 0 0);
+    padding: 0;
+    font-weight: normal;
+    font-family: $font-bold;
+    font-size: rem-calc(22);
+    line-height: rem-calc(32);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+
+    @include bp_min($tablet) {
+      font-size: rem-calc(26);
+      line-height: rem-calc(36);
+    }
+  }
+
+  &__buttons {
+    padding: 0;
+    margin: rem-calc(32 0 0 0);
+    max-width: 100%;
+
+    @include bp_min($desktop) {
+      margin: 0;
+      flex: 0 0 rem-calc(272);
+    }
+
+    .addthis_inline_share_toolbox,
+    .addthis_inline_follow_toolbox {
+      line-height: 0;
+      p {
+        display: none;
+      }
+
+      .addthis_toolbox {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      @include bp_min($desktop) {
+        .at-share-btn-elements,
+        .at-follow-tbx-elements {
+          text-align: right;
+        }
+      }
+
+      .at-share-btn-elements .at-share-btn,
+      .at-follow-tbx-element .at-follow-btn {
+        text-align: left;
+        margin-right: 20px;
+        margin-bottom: 4px;
+        margin-top: 4px;
+
+        @include bp_min($tablet) {
+          margin-left: 20px;
+          margin-right: 0;
+        }
+
+        .at-icon-wrapper {
+          height: 48px !important;
+          line-height: 48px !important;
+          width: 48px !important;
+          background-color: $tintBlue !important;
+
+          svg.at-icon {
+            height: 38px !important;
+            width: 38px !important;
+            margin-left: 5px;
+            margin-top: 5px;
+          }
+
+          svg.at-icon g path {
+            fill: $primary;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+// when in 1/3 width
+@include bp_min($desktop) {
+  .medium-4, .large-4 {
+    .c-social__wrapper {
+      flex-direction: column;
+      align-items: stretch;
+      padding: rem-calc(24 32);
+    }
+    .c-social__buttons {
+      margin: rem-calc(24 0 0 0);
+      text-align: left;
+      flex: 0 0 auto;
+      align-self: flex-start;
+
+      .addthis_inline_share_toolbox .at-share-btn-elements .at-share-btn,
+      .addthis_inline_follow_toolbox .at-follow-tbx-element .at-follow-btn {
+        margin-left: 0;
+        margin-right: rem-calc(16);
+      }
+    }
+  }
+
+  .medium-8, .large-8 {
+
+    .c-social__buttons {
+
+    }
+  }
+}

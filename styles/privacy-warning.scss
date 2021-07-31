@@ -1,0 +1,156 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+
+.privacy-warning {
+    font-size: rem-calc(16);
+    line-height: rem-calc(20);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    @include bp_max(380px) {
+        top: 0;
+        overflow-y: scroll;
+        > .info > p {
+            line-height: 1.4rem;
+            font-size: 0.9rem;
+        }
+    }
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    color: $white;
+    text-align: left;
+    z-index: 1000;
+    background: $tertiary;
+    border: 0;
+
+    .component-content {
+        position: relative;
+        height: auto;
+        width: 90%;
+        padding: rem-calc(10);
+        margin: 0 auto;
+    }
+
+    a {
+        color: $bg-basic-color;
+
+        &:hover,
+        &:focus {
+            color: $bg-basic-color;
+        }
+    }
+
+    .close {
+        transform: scale(1.3, 0.95);
+        font-size: rem-calc(20);
+        position: absolute;
+        top: rem-calc(10);
+        right: rem-calc(30);
+        font-weight: normal;
+        font-family: $font-bold;
+
+        button {
+            font-weight: normal;
+            font-family: $font-bold;
+        }
+    }
+
+    .info,
+    .controls {
+        text-align: left;
+        max-width: rem-calc(1296); // including the padding either side
+        padding: rem-calc(0 16);
+        margin: 0 auto;
+        display: block;
+
+        @include bp_min($tablet) {
+            padding: rem-calc(0 24)
+        }
+
+        @include bp_min($desktop) {
+            padding: rem-calc(0 48);
+        }
+    }
+
+    .info {
+        padding-top: rem-calc(24);
+        @include bp_max($tablet) {
+            padding-top: rem-calc(40);
+        }
+        p {
+            color: $white;
+            @include bp_min($tablet) {
+                padding-right: rem-calc(40);
+            }
+
+            a {
+                font-weight: normal;
+                font-family: $font-bold;
+            }
+        }
+    }
+
+    .controls {
+        padding-bottom: rem-calc(24);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        @include bp_max($tablet) {
+            flex-wrap: wrap;
+            .submit {
+                padding-left: 0 !important;
+                margin-top: 10px;
+                width: 100%;
+            }
+        }
+    }
+
+    .learnMore {
+        margin-right: rem-calc(40);
+
+        a {
+            font-weight: normal;
+            font-family: $font-bold;
+        }
+    }
+
+    .submit {
+
+        button {
+            font-size: rem-calc(18);
+            text-decoration: none;
+            font-weight: normal;
+            font-family: $font-bold;
+            padding: rem-calc(16 24);
+            margin: 0;
+            display: inline-block;
+            line-height: normal;
+            text-align: center;
+            white-space: normal;
+            vertical-align: middle;
+            touch-action: manipulation;
+            user-select: none;
+            background-image: none;
+            border: none;
+            border-radius: rem-calc(32);
+            color: $black;
+            background-color: $white;
+            text-transform: none;
+            transition: all .25s ease-in-out;
+            box-shadow: 0 0.2rem 0.5rem 0 rgba(19, 30, 41, 0.16), 0 0.6rem 0.8rem 0 rgba(0, 0, 0, 0.08);
+            position: relative;
+            font-weight: normal;
+            font-family: $font-bold;
+            text-decoration: none;
+
+            &:hover,
+            &:focus {
+                background: #51b2e5;
+            }
+        }
+
+    }
+}

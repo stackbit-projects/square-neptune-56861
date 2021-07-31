@@ -1,0 +1,92 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+
+
+.c-onThisPage {
+  width: 100%;
+  margin: rem-calc(24) auto;
+  @include bp_min($desktop) {
+      margin: rem-calc(32) auto;
+  }
+
+  padding: 0;
+  border-radius: rem-calc(8);
+  border: 2px solid $midGrey;
+
+  .field-contents-title {
+    font-size: rem-calc(26);
+    line-height: rem-calc(36);
+    font-weight: normal;
+    font-family: $font-bold;
+    padding: rem-calc(24 32);
+    border-bottom: 2px dotted $midGrey;
+  }
+
+  &__contents {
+    padding: rem-calc(32);
+
+    ul {
+      list-style-image: none;
+      list-style-type: none !important;
+      margin: 0;
+      padding: 0;
+
+      display: flex;
+      flex-wrap: wrap;
+
+      min-height: rem-calc(100);
+
+      transition: .25s all ease-in-out;
+      &.loading {
+        // icon from https://loading.io/spinner/custom/266834#
+        background-image: url(/images/animated-searching.svg);
+        background-size: 60px;
+        background-repeat: no-repeat;
+        background-position: top left;
+        position: relative;
+
+        &:before {
+          content: 'Sniffing out links..';
+          font-weight: normal;
+          font-family: $font-bold;
+          position: absolute;
+          left: 100px;
+          top: 16px;
+          color: $primary;
+        }
+
+        > li {
+          opacity: 0;
+        }
+      }
+      /*
+      display: grid;
+      grid-gap: 20px;
+      grid-template-columns: repeat(1, 1fr);
+      @include bp_min($tablet) {
+        grid-template-columns: repeat(2, 1fr);
+      */
+
+      li {
+        transition: .25s all ease-in-out;
+        background-image: url(/images/double_chevron_down.svg);
+        background-size: 14px 14px;
+        background-repeat: no-repeat;
+        background-position: rem-calc(3 8);
+
+        font-weight: normal;
+        font-family: $font-bold;
+        font-size: rem-calc(18);
+        padding: rem-calc(0 0 0 36);
+        margin: rem-calc(0 0 8 0);
+
+        flex: 0 0 100%;
+        @include bp_min($tablet) {
+          flex: 0 0 48%;
+          margin-right: 2%;
+        }
+      }
+    }
+  }
+
+}

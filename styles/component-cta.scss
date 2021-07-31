@@ -1,0 +1,57 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+
+// wrapper
+.c-ctaButton {
+    margin: rem-calc(16 0);
+}
+
+// BUTTON
+.c-ctaButton a,
+%cta,
+.cta {
+    @include cta-button(); // THIS IS DEFINED IN MIXINS.SCSS
+
+    &.cta-large {
+        font-size: rem-calc(18);
+        line-height: rem-calc(24);
+    }
+
+    &.cta-medium {
+        font-size: rem-calc(18);
+        line-height: rem-calc(24);
+        padding-top: rem-calc(12);
+        padding-bottom: rem-calc(12);
+    }
+
+    &.cta-small {
+        font-size: rem-calc(16);
+        line-height: rem-calc(24);
+        padding: rem-calc(8 48 8 16);
+        background-position: center right 16px;
+        background-size: 14px;
+    }
+
+    &.cta-link {
+        background-image: url(/images/icon-link-blue.svg)
+    }
+
+    &.cta-plain {
+        background-image: none;
+        padding: rem-calc(16 24);
+        &:hover,
+        &:focus {
+            background-image: none;
+        }
+    }
+}
+
+.rich-text a.inline-cta-link {
+    @extend .cta;
+    @extend .cta-link;
+}
+
+.rich-text a.inline-cta-medium {
+    @extend .cta;
+    @extend .cta-medium;
+}

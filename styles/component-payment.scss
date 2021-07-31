@@ -1,0 +1,31 @@
+.c-payment-form {
+    margin: 0;
+  }
+  .c-payment-form .help-text {
+    font-style: normal;
+    margin: 0 0 .625rem 0;
+  }
+  .c-payment-form .c-payment-form__line {
+    margin-top: 12px;
+  }
+  .inline-inputs {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .inline-inputs__item {
+    width: 100%;
+  }
+  /** Change to small BP variable **/
+  @media (min-width: 40em) {
+    .inline-inputs__item {
+      max-width: 200px;
+      flex: 1 1 200px;
+    }
+    .inline-inputs__item + .inline-inputs__item {
+      margin-left: 2rem;
+    }
+  }
+  /** Change to whatever the variable is for this **/
+  .c-payment-form input::placeholder {
+    color: #131e29;
+  }

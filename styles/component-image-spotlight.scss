@@ -1,0 +1,158 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+
+.c-imageSpotlight {
+  padding: 0;
+  margin: rem-calc(16) auto;
+  margin-right: -16px;
+  margin-left: -16px;
+  width: calc(100% + 32px);
+
+  .row-bg & {
+    width: 100%;
+    margin: rem-calc(16) auto;
+  }
+
+  @include bp_min($tablet) {
+    width: 100%;
+    margin: rem-calc(24) auto;
+    margin-right: -24px;
+    margin-left: -24px;
+    width: calc(100% + 48px);
+
+    .row-bg & {
+      width: 100%;
+      margin: rem-calc(16) auto;
+    }
+  }
+
+  @include bp_min($desktop) {
+    width: 100%;
+    margin: rem-calc(32) auto;
+  }
+
+  &__wrapper {
+    padding: 0;
+    margin: 0;
+
+    background: $white;
+    border-radius: rem-calc(8);
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    @include bp_min($tablet) {
+      padding: rem-calc(0 8);
+    }
+
+    @include bp_min($desktop) {
+      padding: 0;
+      border-radius: rem-calc(8);
+      border: 2px solid $midGrey;
+      .row-bg--blue & {
+        border-color: $tintBlue;
+      }
+      .row-bg--darkBlue & {
+        border-color: $primary;
+      }
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__image {
+    overflow: hidden;
+    border-radius: rem-calc(8);
+    max-width: 100%;
+    margin: rem-calc(16 16 0 16);
+
+    @include bp_min($tablet) {
+      margin-top: rem-calc(24);
+    }
+
+    @include bp_min($desktop) {
+      flex: 0 0 rem-calc(480);
+      margin: rem-calc(56);
+      order: 2;
+    }
+
+    .ar-16-9 {
+        // fixed at 16:9
+      padding-bottom: 56.25%;
+      overflow: hidden;
+      display: block;
+      height: 0;
+      position: relative;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      font-family: 'object-fit: cover;';
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+    }
+  }
+
+  &__content {
+    padding: rem-calc(24);
+
+    @include bp_min($desktop) {
+      padding: rem-calc(56 0 56 56);
+    }
+  }
+
+  &__title {
+    font-size: rem-calc(34);
+    line-height: rem-calc(46);
+  }
+
+  &__summary {
+
+  }
+
+  &__link {
+    margin: 0;
+
+    a {
+      @include cta-button();
+    }
+  }
+
+}
+
+@include bp_min($desktop) {
+  // when used in a 2/3 width
+  .medium-8, .medium-6,
+  .large-8, .large-6 {
+    .c-imageSpotlight  {
+
+    }
+
+    .c-imageSpotlight__wrapper {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .c-imageSpotlight__image {
+      order: 0;
+      flex: 0 0 auto;
+      height: auto;
+      margin: rem-calc(32 32 0 32);
+    }
+
+    .c-imageSpotlight__content {
+      padding: rem-calc(32);
+    }
+  }
+
+  // when in 50/50 width
+  .medium-6 {
+    .c-imageSpotlight .c-imageSpotlight__image {
+      height: rem-calc(320);
+    }
+  }
+}

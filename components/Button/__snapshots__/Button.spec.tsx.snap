@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders correctly 1`] = `
+<div
+  className="component c-ctaButton ctaWrapper columns c-header__cta"
+>
+  <div
+    className="component-content"
+  >
+    <div
+      className="field-link"
+    >
+      <a
+        className=""
+        data-variantfieldname="Link"
+        data-variantitemid="{test}"
+        href="/"
+        role="button"
+      >
+        click me
+      </a>
+    </div>
+  </div>
+</div>
+`;

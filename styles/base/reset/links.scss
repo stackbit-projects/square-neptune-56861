@@ -1,0 +1,12 @@
+@import "../../abstracts/mixins";
+@import "../../abstracts/vars";
+a {
+    background-color: transparent;
+    text-decoration: none;
+    color: $primary;
+    border-bottom: 1px solid $border-basic-color;
+    &:hover {
+        color: $text-basic-active;
+        text-decoration: none;
+    }
+}

@@ -1,0 +1,111 @@
+[build]
+	functions = "functions"
+	base = "/"
+	publish = "out/"
+	command = "npm run export"
+
+[[plugins]]
+    package = "netlify-plugin-cache-nextjs"
+
+[[headers]]
+	for = "/*"
+	[headers.values]
+		Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+		Access-Control-Allow-Origin = "{NETLIFY_URL}"
+		{PARSED_HEADERS}
+
+# Proxy for media items
+[[redirects]]
+	from = '/-/media/*'
+	to = '{MEDIA_ORIGIN}/-/media/:splat'
+	status = 200
+	force = true
+	[redirects.headers]
+    	Authorization = "Basic {SITECORE_PROXY_BASIC_AUTH}"
+
+# Proxy for media items with alternate casing
+[[redirects]]
+	from = '/-/Media/*'
+	to = '{MEDIA_ORIGIN}/-/media/:splat'
+	status = 200
+	force = true
+	[redirects.headers]
+    	Authorization = "Basic {SITECORE_PROXY_BASIC_AUTH}"		
+
+# Proxy for SXA Search
+[[redirects]]
+	from = '/sxa/search/*'
+	to = '{SITECORE_ORIGIN}/sxa/search/:splat'
+	status = 200
+	force = true
+	[redirects.headers]
+    	Authorization = "Basic {SITECORE_PROXY_BASIC_AUTH}"
+
+# Proxy for Guide Dog API
+[[redirects]]
+	from = '/guidedogsapi/*'
+	to = '{SITECORE_ORIGIN}/guidedogsapi/:splat'
+	status = 200
+	force = true
+	[redirects.headers]
+    	Authorization = "Basic {SITECORE_PROXY_BASIC_AUTH}"
+
+# Proxy for Guide Dog Payments API
+[[redirects]]
+	from = '/guidedogspayments/*'
+	to = '{SITECORE_ORIGIN}/guidedogspayments/:splat'
+	status = 200
+	force = true
+	[redirects.headers]
+    	Authorization = "Basic {SITECORE_PROXY_BASIC_AUTH}"		
+
+# Proxy for EXM 
+[[redirects]]
+	from = '/sitecore%20modules/Web/EXM/*'
+	to = '{SITECORE_ORIGIN}/sitecore%20modules/Web/EXM/:splat'
+	status = 200
+	force = true
+	[redirects.headers]
+    	Authorization = "Basic {SITECORE_PROXY_BASIC_AUTH}"
+
+# Proxy for Sitecore Forms API
+[[redirects]]
+	from = '/formbuilder/*'
+	to = '{SITECORE_ORIGIN}/formbuilder/:splat'
+	status = 200
+	force = true
+	[redirects.headers]
+    	Authorization = "Basic {SITECORE_PROXY_BASIC_AUTH}"
+
+# Proxy for Sitecore Forms scripts
+[[redirects]]
+	from = '/sitecore%20modules/Web/ExperienceForms/scripts/*'
+	to = '{SITECORE_ORIGIN}/sitecore%20modules/Web/ExperienceForms/scripts/:splat'
+	status = 200
+	force = true
+	[redirects.headers]
+    	Authorization = "Basic {SITECORE_PROXY_BASIC_AUTH}"		
+
+# Proxy for Sitecore Forms field analytics
+[[redirects]]
+	from = '/fieldtracking/register/*'
+	to = '{SITECORE_ORIGIN}/fieldtracking/register/:splat'
+	status = 200
+	force = true
+	[redirects.headers]
+    	Authorization = "Basic {SITECORE_PROXY_BASIC_AUTH}"	
+
+{PROXIES_TO_SITECORE}
+
+[[redirects]]
+  from = "/api-fe/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# This is final fallback proxy, and is the last redirect processed. This matches any remaining URL and redirects to the custom 404 page.
+# This is NOT forced, so a matching file locally will take precedence.
+[[redirects]]
+	from = '/*'
+	to = "/.netlify/functions/redirects"
+	status = 200
+	force = false

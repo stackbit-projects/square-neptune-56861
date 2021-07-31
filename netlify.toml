@@ -1,0 +1,326 @@
+[build]
+	functions = "functions"
+	base = "/"
+	publish = "out/"
+	command = "npm run export"
+
+[[plugins]]
+    package = "netlify-plugin-cache-nextjs"
+
+[[headers]]
+	for = "/*"
+	[headers.values]
+		Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+		Access-Control-Allow-Origin = "https://gd-dev-origin.guidedogs.org.uk"
+		Content-Security-Policy = "child-src 'self' ;connect-src 'self' 'unsafe-inline' *.amazonaws.com *.guidedogs.org.uk *.googlesyndication.com *.addthis.com *.azurewebsites.net *.googleapis.com *.hotjar.com *.zenaps.com wss://*.hotjar.com *.doubleclick.net *.usabilla.com *.google-analytics.com *.windows.net;default-src 'self' ;font-src 'self' *.typekit.net *.azureedge.net *.gstatic.com data:;frame-ancestors 'self' *.azurewebsites.net;frame-src 'self' *.addthis.com *.addthisedge.com *.guidedogs.org.uk https://www.audiencemanager.de *.hotjar.com *.rfihub.com *.facebook.com *.amazon-adsystem.com *.doubleclick.net *.youtube.com *.datacash.com *.azurewebsites.net/ *.awin1.com *.arcot.com *.youtube-nocookie.com *.americanexpress.com *.paypalobjects.com *.abmr.net *.barclaycard.co.uk *.barclays.co.uk *.lloydstsb.com *.securesuite.co.uk *.cardinalcommerce.com *.muchloved.com *.edb.com *.mycardsecure.com  *.monzo.com *.securecode.com *.wlp-acs.com *.westpac.com *.redsys.es *.netsgroup.com *.touchtechpayments.com *.stripe.com *.google.com *.cloudfront.net *.sandbox.paypal.com;img-src data: 'unsafe-eval' 'self' 'unsafe-inline' static.ads-twitter.com *.azureedge.net *.amazon-adsystem.com *.adnxs.com *.google-analytics.com *.tvsquared.com *.co *.doubleclick.net *.facebook.com analytics.twitter.com *.google.com *.google.co.uk *.gstatic.com *.atdm *.googleapis.comt.com *.audiencemanager.de *.googlesyndication.com *.googleapis.com *.paypalobjects.com *.awin1.com *.ak1s.abmr.net *.abmr.net *.muchloved.com *.bing.com *.cloudfront.net *.usabilla.com;media-src 'self' *.azureedge.net *.youtube.com;object-src 'self' ;report-uri  https://rwgd.report-uri.com/r/d/csp/enforce;script-src 'self' 'unsafe-inline' 'unsafe-eval' code.jquery.com *.google-analytics.com *.addthis.com *.addthisedge.com *.typekit.net www.googletagmanager.com static.ads-twitter.com cdnjs.cloudflare.com *.amazonaws.com *.azureedge.net *.hotjar.com *.tvsquared.com *.adform.net *.doubleclick.net *.rfihub.net *.facebook.net *.ads-twitter.com *.audiencemanager.de *.googletagservices.com *.googleadservices.com *.twitter.com a.rfihub.com *.guidedogs.org.uk *.google.com *.google.co.uk *.youtube.com *.ytimg.com *.facebook.com *.googleapis.com *.dwin1.com *.awin1.com *.zenaps.com *.muchloved.com *.bing.com *.usabilla.com *.googlesyndication.com js.stripe.com *.cloudfront.net *.trackedlink.net *.paypal.com *.sandbox.paypal.com *.polyfill.io;style-src 'self' 'unsafe-inline' *.typekit.net *.guidedogs.org.uk *.azureedge.net *.google.com *.googleapis.com *.google.co.uk *.muchloved.com *.cloudfront.net;"
+
+# Proxy for media items
+[[redirects]]
+	from = '/-/media/*'
+	to = 'https://gd-dev-origin.guidedogs.org.uk/-/media/:splat'
+	status = 200
+	force = true
+	[redirects.headers]
+    	Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="
+
+# Proxy for media items with alternate casing
+[[redirects]]
+	from = '/-/Media/*'
+	to = 'https://gd-dev-origin.guidedogs.org.uk/-/media/:splat'
+	status = 200
+	force = true
+	[redirects.headers]
+    	Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+# Proxy for SXA Search
+[[redirects]]
+	from = '/sxa/search/*'
+	to = 'https://gd-dev-origin.guidedogs.org.uk/sxa/search/:splat'
+	status = 200
+	force = true
+	[redirects.headers]
+    	Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="
+
+# Proxy for Guide Dog API
+[[redirects]]
+	from = '/guidedogsapi/*'
+	to = 'https://gd-dev-origin.guidedogs.org.uk/guidedogsapi/:splat'
+	status = 200
+	force = true
+	[redirects.headers]
+    	Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="
+
+# Proxy for Guide Dog Payments API
+[[redirects]]
+	from = '/guidedogspayments/*'
+	to = 'https://gd-dev-origin.guidedogs.org.uk/guidedogspayments/:splat'
+	status = 200
+	force = true
+	[redirects.headers]
+    	Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+# Proxy for EXM 
+[[redirects]]
+	from = '/sitecore%20modules/Web/EXM/*'
+	to = 'https://gd-dev-origin.guidedogs.org.uk/sitecore%20modules/Web/EXM/:splat'
+	status = 200
+	force = true
+	[redirects.headers]
+    	Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="
+
+# Proxy for Sitecore Forms API
+[[redirects]]
+	from = '/formbuilder/*'
+	to = 'https://gd-dev-origin.guidedogs.org.uk/formbuilder/:splat'
+	status = 200
+	force = true
+	[redirects.headers]
+    	Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="
+
+# Proxy for Sitecore Forms scripts
+[[redirects]]
+	from = '/sitecore%20modules/Web/ExperienceForms/scripts/*'
+	to = 'https://gd-dev-origin.guidedogs.org.uk/sitecore%20modules/Web/ExperienceForms/scripts/:splat'
+	status = 200
+	force = true
+	[redirects.headers]
+    	Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+# Proxy for Sitecore Forms field analytics
+[[redirects]]
+	from = '/fieldtracking/register/*'
+	to = 'https://gd-dev-origin.guidedogs.org.uk/fieldtracking/register/:splat'
+	status = 200
+	force = true
+	[redirects.headers]
+    	Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="	
+
+[[redirects]]
+  from = '/how-you-can-help/how-your-school-or-youth-group-can-help/stem-projects/stem-thank-you'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/how-you-can-help/how-your-school-or-youth-group-can-help/stem-projects/stem-thank-you'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/how-you-can-help/volunteering-for-guide-dogs/apply-for-a-role/thank-you'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/how-you-can-help/volunteering-for-guide-dogs/apply-for-a-role/thank-you'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/how-you-can-help/volunteering-for-guide-dogs/apply-for-a-role/personal-details'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/how-you-can-help/volunteering-for-guide-dogs/apply-for-a-role/personal-details'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/how-you-can-help/volunteering-for-guide-dogs/apply-for-a-role'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/how-you-can-help/volunteering-for-guide-dogs/apply-for-a-role'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/how-you-can-help/volunteering-for-guide-dogs/awards-and-recognition/local-volunteer-awards/thank-you'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/how-you-can-help/volunteering-for-guide-dogs/awards-and-recognition/local-volunteer-awards/thank-you'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/how-you-can-help/invite-a-speaker/invite-a-speaker-form/thank-you'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/how-you-can-help/invite-a-speaker/invite-a-speaker-form/thank-you'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/getting-support/getting-in-touch-form/getting-in-touch-confirmation'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/getting-support/getting-in-touch-form/getting-in-touch-confirmation'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/play-and-win/lucky-lottery/play-the-lucky-lottery/thank-you'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/play-and-win/lucky-lottery/play-the-lucky-lottery/thank-you'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/donate-now/single-donation/thank-you'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/donate-now/single-donation/thank-you'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/donate-now/monthly-donation/monthly-donation---thank-you'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/donate-now/monthly-donation/monthly-donation---thank-you'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/walk-your-socks-off/sign-up-now/callback-page'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/walk-your-socks-off/sign-up-now/callback-page'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/walk-your-socks-off/sign-up-now/create-page'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/walk-your-socks-off/sign-up-now/create-page'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/walk-your-socks-off/sign-up-now/group-thank-you'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/walk-your-socks-off/sign-up-now/group-thank-you'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/walk-your-socks-off/sign-up-now/just-giving'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/walk-your-socks-off/sign-up-now/just-giving'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/walk-your-socks-off/sign-up-now/thank-you'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/walk-your-socks-off/sign-up-now/thank-you'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/sponsor-a-puppy-today/single-payment-thank-you'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/sponsor-a-puppy-today/single-payment-thank-you'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/sponsor-a-puppy-today/monthly-payment-thank-you'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/sponsor-a-puppy-today/monthly-payment-thank-you'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/donate-in-memory-of-your-loved-one/thank-you'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/donate-in-memory-of-your-loved-one/thank-you'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/stripe-test-form/single-donation/thank-you'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/stripe-test-form/single-donation/thank-you'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/campaign-single-donation/single-donation-thank-you'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/campaign-single-donation/single-donation-thank-you'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/volunteer-testing-test/volunteersearchresults'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/volunteer-testing-test/volunteersearchresults'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/good-dog/sign-up-now/thank-you'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/good-dog/sign-up-now/thank-you'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/campaign-bundle-single-donation/campaign-bundle-single-donation-thank-you'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/campaign-bundle-single-donation/campaign-bundle-single-donation-thank-you'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/campaign-today-single-donation/campaign-today-single-donation-thank-you'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/campaign-today-single-donation/campaign-today-single-donation-thank-you'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/the-great-british-dog-survey/dog-survey/thank-you'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/the-great-british-dog-survey/dog-survey/thank-you'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/campaign-regular-donation/monthly-donation-thank-you'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/campaign-regular-donation/monthly-donation-thank-you'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+[[redirects]]
+  from = '/services-getting-in-touch-confirmation'
+  to = 'https://gd-dev-origin.guidedogs.org.uk/services-getting-in-touch-confirmation'
+  status = 200
+  force = true
+  [redirects.headers]
+      Authorization = "Basic Z3VpZGVkb2dzOmM4N2J0R0hRWUhVWENqc1FNQTV5dHRKWg=="		
+
+
+[[redirects]]
+  from = "/api-fe/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# This is final fallback proxy, and is the last redirect processed. This matches any remaining URL and redirects to the custom 404 page.
+# This is NOT forced, so a matching file locally will take precedence.
+[[redirects]]
+	from = '/*'
+	to = "/.netlify/functions/redirects"
+	status = 200
+	force = false

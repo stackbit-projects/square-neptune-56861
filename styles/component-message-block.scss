@@ -1,0 +1,65 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+
+.c-messageBlock {
+  @include component-margins();
+
+  &__wrapper {
+    border: 4px solid $highlightBlue;
+    border-radius: rem-calc(8);
+
+    &--alt {
+      border-color: $text-red;
+    }
+
+  }
+
+  &__content {
+    position: relative;
+    margin: 0;
+    padding: rem-calc(106 32 32 32);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: $font-bold;
+
+    @include bp_min($tablet) {
+      padding: rem-calc(32 32 32 112);
+      min-height: rem-calc(100);
+    }
+
+    > p {
+      font-size: rem-calc(18);
+      align-self: flex-start;
+    }
+    > p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    &:before {
+      display: block;
+      content: "";
+      width: rem-calc(62);
+      height: rem-calc(62);
+      position: absolute;
+      background-size: 60px 60px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-image: url(/images/icon-notification-filled.svg);
+      left: rem-calc(24);
+      top: rem-calc(24);
+    }
+
+    @include bp_min($tablet) {
+      &:before {
+        left: rem-calc(28);
+        top: rem-calc(28);
+        width: rem-calc(52);
+        height: rem-calc(52);
+        background-size: 50px 50px;
+      }
+    }
+  }
+
+}

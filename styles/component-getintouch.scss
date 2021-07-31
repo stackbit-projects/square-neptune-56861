@@ -1,0 +1,110 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+
+.c-getInTouch {
+  @include component-margins();
+
+  &__wrapper {
+    margin: 0;
+    border-radius: rem-calc(8);
+    border: 2px solid $midGrey;
+
+    padding: rem-calc(32);
+    padding-top: rem-calc(80);
+
+    background: $white;
+
+    position: relative;
+    font-size: rem-calc(18);
+    line-height: rem-calc(26);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+
+    @include bp_min($tablet) {
+      padding: rem-calc(32 48);
+      padding-right: rem-calc(64);
+      padding-left: rem-calc(86);
+      font-size: rem-calc(20);
+      line-height: rem-calc(32);
+    }
+
+    @include bp_min($desktop) {
+      padding-left: rem-calc(96);
+    }
+
+    .medium-4 & {
+      padding-right: rem-calc(32);
+    }
+
+    &:before {
+      display: block;
+      content: "";
+      height: rem-calc(60);
+      width: calc(100% + 4px);
+      position: absolute;
+      background-color: $highlightBlue;
+      background-size: 24px;
+      background-repeat: no-repeat;
+      background-position: top 20px left 32px;
+      background-image: url(/images/icon-speech-blue.svg);
+      left: -2px;
+      top: -2px;
+      border-radius: rem-calc(8 8 0 0);
+    }
+
+    @include bp_min($tablet) {
+      &:before {
+        width: rem-calc(60);
+        height: calc(100% + 4px);
+        background-position: top 32px center;
+        border-radius: rem-calc(8 0 0 8);
+      }
+    }
+
+  }
+
+  &__email,
+  &__telephone {
+    padding: 0;
+    margin: rem-calc(8 32 0 0);
+    display: inline-block;
+    font-size: rem-calc(18);
+    position: relative;
+    max-width: 100%;
+
+    a {
+      padding-left: rem-calc(36);
+      display: inline-block;
+      max-width: 100%;
+    }
+
+    a:before {
+      content: '';
+      display: inline-block;
+      width: rem-calc(24);
+      height: rem-calc(24);
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-size: 20px;
+      background-repeat: no-repeat;
+      background-position: center left;
+    }
+  }
+
+  &__email {
+    a:before {
+      background-image: url(/images/icon-email-blue.svg);
+    }
+    @include bp_max($tablet) {
+      margin-bottom: rem-calc(16);
+    }
+  }
+
+  &__telephone {
+    a:before {
+      background-image: url(/images/icon-phone-blue.svg);
+    }
+  }
+
+}

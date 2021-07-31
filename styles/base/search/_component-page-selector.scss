@@ -1,0 +1,100 @@
+@import "../../abstracts/vars";
+.page-selector {
+    text-align: center;
+    padding: 10px 0 0 0;
+    .page-selector-list {
+        width: 100%;
+        display: flex;
+        border-top: 8px solid $lightGrey;
+        border-bottom: 8px solid $lightGrey;
+        padding: 40px 0;
+        margin-bottom: 40px;
+        text-align: left;
+        li {
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: 0;
+            margin-right: rem-calc(16);
+            width: 42px;
+            height: 42px;
+            &.page-selector-item-first, &.page-selector-item-last {
+                display: none;
+            }
+            &.page-selector-item-previous {
+                text-indent: -150px;
+                a {
+                    background-image: url(/images/arrow-left--left-small.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    height: 100%;
+                    width: 100%;
+                    margin: 0 auto;
+                    display: block;
+                    border-radius: 50%;
+                    background-color: $tintBlue;
+                }
+            }
+
+            &.page-selector-item-next {
+                text-indent: -150px;
+                a {
+                    background-image: url(/images/arrow-right--blue.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    height: 100%;
+                    width: 100%;
+                    margin: 0 auto;
+                    display: block;
+                    border-radius: 50%;
+                    background-color: $tintBlue;
+                }
+            }
+            &.inactive {
+                a {
+                    background-color: $midGrey;
+                    cursor: default;
+                    opacity: 0.6;
+                }
+            }
+        }
+    }
+    a {
+        text-decoration: none;
+        font-weight: normal;
+        font-family: $font-bold;
+        font-size: 1em;
+    }
+    .page-selector-item-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        font-weight: normal;
+        height: 75%;
+        width: 75%;
+        margin: 0 auto;
+        line-height: 32px;
+        color: $primary;
+        border-radius: 50%;
+        border: 1px solid $white;
+        text-decoration: underline;
+
+        &.active {
+            font-weight: normal;
+            font-family: $font-bold;
+            text-decoration: none;
+            border: 1px solid $primary;
+        }
+        &:hover {
+            color: $search-pagination-hover-color;
+            background: $highlightBlue;
+            text-decoration: none;
+        }
+        &.inactive {
+            color: $text-disabled;
+        }
+    }
+}

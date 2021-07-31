@@ -1,0 +1,92 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+
+// only apply to search-box on page. not header
+#content .component.search-box {
+    @include component-margins();
+
+    @include bp_min($desktop) {
+        padding: rem-calc(16 0);
+    }
+
+    .component-content {
+        padding: rem-calc(16 24);
+        margin: 0;
+
+        border-radius: rem-calc(8);
+        background: $primary;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        @include bp_min(800px) {
+            padding: rem-calc(32 48);
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+          }
+
+    }
+    label[for="textBoxSearch"] {
+        font-size: rem-calc(24);
+        color: $white;
+        margin: 0;
+        padding: 0;
+        @include bp_max(800px) {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+    .search-box-input {
+        margin: 0;
+        background-color: $white;
+        font-size: rem-calc(18);
+        padding: rem-calc(17) rem-calc(23);
+        border: none !important;
+        border-radius: rem-calc(8);
+    }
+
+    .twitter-typeahead {
+        flex: 1;
+        margin-right: rem-calc(32);
+        margin-left: rem-calc(32);
+        @include bp_max(800px) {
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom: rem-calc(20);
+        }
+        .tt-menu {
+            display: none !important;
+        }
+    }
+    .search-box-delete {
+        width: rem-calc(20);
+        height: rem-calc(20);
+        position: absolute;
+        z-index: 6;
+        top: 50%;
+        right: rem-calc(15);
+        background-image: url(/images/icon-close--blue.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        margin-top: rem-calc(-10);
+        cursor: pointer;
+        display: none;
+    }
+
+}
+
+.search-results .no-results {
+    display: none;
+}
+
+.search-results-count {
+    .results-count {
+        font-weight: normal;
+        font-family: $font-bold;
+        margin-bottom: rem-calc(45);
+        font-size: $font-extramedium;
+        margin-top: rem-calc(15);
+    }
+}

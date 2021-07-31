@@ -1,0 +1,31 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+.map {
+    @include component-margins();
+
+    border: 0;
+    max-width: 100%;
+    height: rem-calc(400) !important;
+    overflow: hidden;
+    position: relative;
+    background: $map-bg;
+
+    .map-canvas {
+        position: relative;
+    }
+    img {
+        max-width: none;
+    }
+    .MicrosoftMap .infobox-close {
+        position: static;
+        float: right;
+    }
+    .MicrosoftMap .Infobox .infobox-body {
+        height: 100%;
+    }
+    .MicrosoftMap .Infobox .infobox-info {
+        height: 100%;
+        box-sizing: border-box;
+    }
+    @import "variants/map/default";
+}

@@ -1,0 +1,251 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+.content, .rich-text {
+    overflow: hidden;
+    @import "base/richtext/richtext-files-icons";
+    @import "base/richtext/richtext";
+}
+.rich-text  {
+    @import "variants/rich-text/default";
+}
+.content {
+    @import "variants/page-content/default";
+}
+@import "styles/rich-text/rich-text-lists";
+
+
+.column-splitter .rich-text {
+    margin-bottom: 0;
+}
+
+.accordion .field-content,
+.rich-text {
+    overflow: initial;
+    @include component-margins();
+
+    h1,h2,h3,h4,h5 {
+        color: $primary;
+    }
+    p {
+        color: $primary;
+    }
+
+    p.intro {
+        font-size: rem-calc(20);
+        line-height: rem-calc(32);
+    }
+
+    ul, ol {
+        margin: rem-calc(0 0 24 0);
+        padding: 0;
+        list-style-type: none;
+
+        li {
+            margin: rem-calc(0 0 24 0);
+            line-height: 1.5em;
+        }
+    }
+
+    ul {
+        list-style-type: disc;
+        margin: rem-calc(0 0 0 26);
+        > li {
+            padding: rem-calc(0 0 0 14);
+        }
+    }
+
+    ol {
+        counter-reset: ol-counter;
+        > li {
+            counter-increment: ol-counter;
+            position: relative;
+            padding: rem-calc(0 0 0 40);
+        }
+        > li::before {
+            content: counter(ol-counter) "";
+            color: $primary;
+            background-color: $white;
+            font-weight: normal;
+            font-family: $font-bold;
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            min-width: rem-calc(24);
+            border-radius: rem-calc(4);
+            text-align: center;
+            border-radius: 50%;
+            font-size: rem-calc(16);
+            width: rem-calc(28);
+            height: rem-calc(28);
+            border: 2px solid $primary;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    ul li ul, ol li ul {
+        margin: rem-calc(16 0 16 18);
+        padding: 0;
+
+        li {
+            margin: rem-calc(0 0 16 0);
+            padding: rem-calc(0 0 0 14);
+            line-height: 1.2em;
+        }
+    }
+
+    strong {
+        font-weight: normal;
+        font-family: $font-bold;
+    }
+
+    address {
+        margin: 0 0 1.2rem 0;
+        line-height: 1.4;
+    }
+
+    pre,
+    code {
+        padding: 0.5rem;
+        margin: 0;
+        border-radius: 0.3rem;
+        line-height: 1.2;
+        color: $tertiary;
+        word-break: break-all;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        background-color: #f6f8fa;
+        border: 0.1rem solid #f6f8fa;
+        display: inline-block;
+    }
+
+    pre {
+        margin: 0 0 2rem 0;
+    }
+
+    dl {
+        margin-bottom: 1.2rem;
+        margin-top: 0;
+    }
+
+    dt,
+    dd {
+        line-height: 1.42857143;
+    }
+
+    dt {
+        font-weight: normal;
+    }
+
+    dd {
+        margin-bottom: 1rem;
+        margin-left: 0;
+    }
+
+    blockquote, .text-highlight {
+        display: block;
+        padding: rem-calc(8 24);
+        font-size: rem-calc(24);
+        line-height: 1.3em;
+        margin: rem-calc(24 3);
+        font-weight: normal;
+        font-family: $font-bold;
+        color: $primary;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: $primary;
+            border-radius: 4px;
+        }
+    }
+
+    table {
+        border-radius: rem-calc(8 8 0 0);
+        overflow: hidden;
+        border: 0;
+        background-color: $white;
+        width: 100%;
+        text-align: left;
+        margin-bottom: rem-calc(24);
+    }
+    table td, table th {
+        border: 0px;
+        padding: rem-calc(24 40);
+    }
+    table tr:nth-child(even) {
+        background: $tintBlue;
+    }
+    table thead, table tbody, table tfoot {
+        border: 0;
+    }
+    table thead tr th {
+        background: $primary;
+
+        &:first-of-type {
+            border-top-left-radius: rem-calc(8);
+        }
+        &:last-of-type {
+            border-top-right-radius: rem-calc(8);
+        }
+    }
+    table thead th {
+        font-size: rem-calc(20);
+        font-weight: normal;
+        font-family: $font-bold;
+        color: $white;
+    }
+    table tr {
+        border: 0;
+    }
+    table tbody > tr td:first-of-type {
+        border-left: 2px solid $midGrey;
+    }
+    table tbody > tr td:last-of-type {
+        border-right: 2px solid $midGrey;
+    }
+    table tbody > tr:last-of-type {
+        td {
+            border-bottom: 2px solid $midGrey;
+        }
+        td:first-of-type {
+            border-bottom-left-radius: rem-calc(8);
+        }
+        td:last-of-type {
+            border-bottom-right-radius: rem-calc(8);
+        }
+    }
+
+    img {
+        max-width: 100%;
+        height: auto !important;
+        border-radius: rem-calc(8);
+    }
+
+    .right-align-image {
+        float: right;
+        margin: rem-calc(24 0 24 32);
+    }
+
+    .left-align-image {
+        float: left;
+        margin: rem-calc(24 32 24 0);
+    }
+
+    @include bp_max($tablet) {
+        .right-align-image,
+        .left-align-image {
+            display: block;
+            clear: both;
+            margin: 0 auto;
+            float: none;
+        }
+    }
+
+}

@@ -1,0 +1,104 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+
+// the blue standalone search boxes
+
+.c-searchBox {
+
+  @include component-margins();
+
+  &__title {
+    margin-bottom: rem-calc(40);
+  }
+
+  &__wrapper {
+    padding: rem-calc(32);
+    margin: 0;
+    width: 100%;
+    min-height: rem-calc(96);
+
+    &--increased-padding {
+      padding: rem-calc(45);
+      @include bp_max(800px) {
+        padding-left: 1.7rem;
+        padding-left: 1.7rem;
+      }
+    }
+
+    background: $primary;
+    border-radius: rem-calc(8);
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    @include bp_min($desktop) {
+      flex-direction: row;
+      align-items: flex-end;
+    }
+  }
+
+  &__input {
+    &--volunteering {
+      button {
+        width: 100%;
+      }
+    }
+    label {
+      color: $white;
+      font-size: rem-calc(24);
+      margin: rem-calc(0 0 16 0);
+    }
+
+    select, input {
+      margin-bottom: 0;
+      font-size: rem-calc(18);
+    }
+
+    margin-bottom: rem-calc(24);
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    @include bp_min($desktop) {
+      margin-bottom: 0;
+
+      &.s--distance {
+        flex: 0 0 220px;
+      }
+      &.s--location {
+        flex: 1 1 auto;
+        margin: 0 rem-calc(24);
+      }
+    }
+
+    @include bp_min($desktop) {
+      &--inline {
+        display: flex;
+        flex: 1;
+        padding-right: rem-calc(32);
+
+        label {
+          min-width: rem-calc(230);
+          margin-bottom: 0;
+        }
+      }
+  }
+
+
+  }
+
+  .error {
+    display: none;
+    &.show {display: block;}
+    margin: rem-calc(30);
+    background-image: url(/images/icon-error--blue.svg);
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    background-size: rem-calc(24);
+    padding-left: rem-calc(40);
+    line-height: 2rem;
+  }
+
+}

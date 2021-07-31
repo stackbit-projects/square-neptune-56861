@@ -1,0 +1,183 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+
+$file-types: "jpeg", "jpg", "png", "pdf", "doc", "docx", "xls", "xlsx", "mp3";
+
+.c-downloadList {
+  @include component-margins();
+
+  ul {
+    margin: 0;
+    border-radius: rem-calc(8);
+    overflow: hidden;
+
+    @include bp_min($tablet) {
+      border: 2px solid $midGrey;
+      display: flex;
+      flex-wrap: wrap;
+
+      @supports( grid-area: auto ) {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+      }
+    }
+
+    background: $white;
+    list-style-type: none !important;
+  }
+
+  .list-item {
+    flex: 0 0 50%;
+    @supports( grid-area: auto ) {
+      flex: none;
+    }
+
+    padding: rem-calc(24 0);
+    padding-top: rem-calc(80);
+
+    @include bp_min($tablet) {
+      padding: rem-calc(24 32);
+      padding-left: rem-calc(80);
+    }
+
+    @include bp_min($desktop) {
+      padding: rem-calc(32);
+      padding-left: rem-calc(96);
+    }
+
+    position: relative;
+    font-size: rem-calc(18);
+    line-height: rem-calc(26);
+
+    border-bottom: 2px solid $midGrey;
+
+    &:last-child,
+    &:nth-last-child(2) {
+      border-bottom: 0;
+    }
+
+    .medium-8 &, .large-8 &,
+    .medium-6 &, .large-6 & {
+      &:last-child,
+      &:nth-last-child(2) {
+        border-bottom: 2px solid $midGrey;
+      }
+    }
+
+    &:nth-child(even) {
+      border-bottom: 2px solid $midGrey;
+    }
+
+    &:last-of-type {
+      border-bottom: 0 !important;
+    }
+  }
+
+  .field-filetypeicon {
+    position: absolute;
+    top: rem-calc(16);
+    left: 0;
+    width: rem-calc(54);
+
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    @include bp_min($tablet) {
+      justify-content: center;
+      top: rem-calc(24);
+      bottom: rem-calc(24);
+      left: 0;
+      width: rem-calc(80);
+    }
+
+    @include bp_min($desktop) {
+      top: rem-calc(32);
+      bottom: rem-calc(32);
+      width: rem-calc(96);
+    }
+
+    > span {
+      background-size: 24px;
+      width: rem-calc(48);
+      height: rem-calc(48);
+      border-radius: rem-calc(24);
+      display: block;
+      background-color: $highlightBlue;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-image: url(/images/icon-download-blue.svg);
+    }
+
+    @each $file in $file-types {
+      > span.#{$file} {
+        background-image: url(/images/icon-#{$file}-blue.svg);
+      }
+    }
+  }
+
+  &__title,
+  &__summary {
+    margin-bottom: rem-calc(12);
+  }
+
+  a {
+    padding: 0;
+    margin: 0;
+    font-size: rem-calc(18);
+    position: relative;
+  }
+}
+
+.c-downloadList {
+  &.c-downloadList--doubleColumn {
+    ul {
+      @include bp_min($desktop) {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+    .list-item {
+      @include bp_min($desktop) {
+        flex: 1 1 50%;
+      }
+    }
+  }
+}
+
+.c-downloadList.c-downloadList--noBlurb {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .list-item {
+    height: auto;
+    border-bottom: 0;
+    flex: 1 1 100%;
+  }
+
+  &.c-downloadList--doubleColumn {
+    .list-item {
+      @include bp_min($desktop) {
+        flex: 1 1 50%;
+      }
+    }
+  }
+
+  .field-filetypeicon {
+    top: rem-calc(14);
+    @include bp_min($desktop) {
+      top: rem-calc(22);
+    }
+    height: auto;
+  }
+}
+
+
+.c-downloadList__noBackground {
+  ul {
+    background: transparent;
+    box-shadow: none;
+  }
+}

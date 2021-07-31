@@ -1,0 +1,141 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+
+.c-inThisSection {
+    @include component-margins();
+
+    padding: 0;
+
+    &__wrapper {
+      margin: 0;
+      padding: 0;
+      background: $white;
+      border-radius: rem-calc(8);
+      overflow: hidden;
+    }
+
+    &__title,
+    &__greatGrandParent,
+    &__grandParent,
+    &__parent,
+    &__list {
+        padding: rem-calc(24);
+        list-style-type: none !important;
+
+        @include bp_min($desktop) {
+        padding: rem-calc(32);
+        }
+
+        position: relative;
+        &:after {
+            content: '';
+            position: absolute;
+            border: 2px solid $midGrey;
+            border-width: 0 2px 2px 0;
+            background-color: $white;
+            width: rem-calc(20);
+            height: rem-calc(20);
+            right: rem-calc(24);
+            bottom: rem-calc(-10.5);
+            transform: rotate(45deg);
+        }
+    }
+
+    &__title {
+        border-bottom: 1px solid $primary;
+        font-size: rem-calc(26);
+        line-height: rem-calc(36);
+        font-weight: normal;
+        font-family: $font-bold;
+        background: $primary;
+        color: $white;
+
+        border: 2px solid $primary;
+        border-radius: rem-calc(8 8 0 0);
+
+      &:after {
+            background-color: $primary;
+            border: 0;
+        }
+    }
+
+    &__greatGrandParent,
+    &__grandParent {
+        border: 2px solid $midGrey;
+        border-top: 0;
+        font-size: rem-calc(22);
+        font-weight: normal;
+        font-family: $font-bold;
+        background: $white;
+
+        &:after {
+            background-color: $white;
+        }
+
+        a {
+            text-decoration: none;
+            color: $primary;
+        }
+        a:hover,a:focus {
+            color: $primary;
+            text-decoration: underline;
+        }
+    }
+
+
+    &__parent {
+        border: 2px solid $midGrey;
+        border-top: 0;
+        font-size: rem-calc(20);
+        background: $white;
+        &:after {
+            background-color: $white;
+        }
+
+        a {
+            text-decoration: none;
+            color: $primary;
+        }
+        a:hover,a:focus {
+            color: $primary;
+            text-decoration: underline;
+        }
+    }
+
+    &__grandParent + &__parent {
+        background: $white;
+        &:after {
+            background-color: $white;
+        }
+    }
+
+    &__title {z-index: 4;}
+    &__greatGrandParent {z-index: 3;}
+    &__grandParent {z-index: 2;}
+    &__parent {z-index: 1;}
+
+    &__list {
+        &:after {
+            display: none;
+        }
+
+        padding-top: rem-calc(16);
+        padding-bottom: rem-calc(16);
+        border: 2px solid $midGrey;
+        border-radius: rem-calc(0 0 8 8);
+        border-top: 0;
+
+        li {
+            padding: rem-calc(4 20);
+            margin: rem-calc(8 0);
+        }
+        li.active-page {
+            border-left: rem-calc(4) solid $primary;
+            padding-left: rem-calc(16);
+            font-weight: normal;
+            font-family: $font-heavy;
+            color: $primary;
+        }
+    }
+
+}

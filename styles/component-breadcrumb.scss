@@ -1,0 +1,87 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+
+.c-breadCrumb {
+
+    width: 100%;
+    margin: 0;
+
+    @include bp_min($desktop) {
+        margin: rem-calc(0 0 24 0);
+    }
+
+    z-index: 12;
+    position: relative;
+
+    nav {
+        padding: rem-calc(24 0);
+        @include bp_min($desktop) {
+            padding: rem-calc(48 0);
+        }
+        margin: 0;
+    }
+
+    ol {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    li {
+        display: block;
+
+        .separator {
+            margin: rem-calc(0 8 0 0);
+            color: $primary;
+        }
+
+        &:last-of-type {
+            .c-breadCrumb__link {
+                padding-right: 0;
+            }
+        }
+        .c-breadCrumb__link {
+            padding-right: rem-calc(8);
+        }
+    }
+
+    li.last .separator {
+        display: none;
+    }
+
+    &__link {
+
+        a {
+            font-family: $font-normal;
+        }
+    }
+
+    li.last {
+        .c-breadCrumb__link a {
+            text-decoration: none;
+            pointer-events: none;
+        }
+    }
+
+}
+
+
+// when on top of a secondary-hero
+// class added by breadcrumb-styling.js
+
+.c-breadCrumb.on-hero {
+    @include bp_min($desktop) {
+        nav {
+            display: inline-block;
+            width: auto;
+            padding: rem-calc(8 16);
+            margin: rem-calc(24 0);
+            border: 0;
+            position: absolute;
+            border-radius: rem-calc(8);
+            background: $white;
+        }
+        &.primary nav {
+            display: none;
+        }
+    }
+}
